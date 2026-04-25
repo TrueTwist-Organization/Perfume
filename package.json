@@ -1,0 +1,12 @@
+{
+  "name": "pnf-luxury-perfume",
+  "version": "1.0.0",
+  "description": "Premium Luxury Perfume House Website",
+  "main": "index.html",
+  "scripts": {
+    "dev": "npx -y serve@latest ./"
+  },
+  "dependencies": {
+    "@fortawesome/fontawesome-free": "^7.2.0"
+  }
+}

@@ -1,0 +1,495 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Velvet Oud — NOIR ESSENCE™ Luxury Perfumery</title>
+    <meta name="description"
+        content="Discover Velvet Oud by Noir Essence. A majestic blend of Saffron, Bulgarian Rose, and precious Oud. Experience the peak of luxury.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,400&family=Outfit:wght@300;400;500;600&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="product-detail.css">
+    <style>
+        :root {
+            --product-color: #c2b6a0;
+            --product-glow: rgba(194, 182, 160, 0.08);
+        }
+
+        .gold-text {
+            background: linear-gradient(135deg, #dcd4c6, #c2b6a0);
+            -webkit-background-clip: text;
+            background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        /* Image Styling */
+        .pd-image-wrapper {
+            position: relative;
+            z-index: 5;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            filter: drop-shadow(0 15px 40px rgba(0, 0, 0, 0.1));
+        }
+
+        .pd-product-image {
+            width: 100%;
+            max-width: 380px;
+            height: auto;
+            border-radius: 20px;
+            animation: imageFloat 6s ease-in-out infinite;
+        }
+
+        @keyframes imageFloat {
+
+            0%,
+            100% {
+                transform: translateY(0) rotate(0deg);
+            }
+
+            50% {
+                transform: translateY(-12px) rotate(1deg);
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="site-video-bg">
+        <video autoplay muted loop playsinline>
+            <source src="velvet-oud-bg.mp4" type="video/mp4">
+        </video>
+        <div class="site-video-overlay"></div>
+    </div>
+    <div class="cursor-glow" id="cursorGlow"></div>
+    <div class="particles" id="particles"></div>
+
+    <!-- Navbar -->
+    <nav class="navbar" id="navbar">
+        <div class="nav-container">
+            <a href="index.html" class="nav-logo">
+                <div class="logo-wrapper">
+                    <svg viewBox="0 0 100 100" class="logo-svg" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <defs>
+                            <linearGradient id="logoGoldGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+                                <stop offset="0%" stop-color="#f5e6ad" />
+                                <stop offset="50%" stop-color="#c9a96e" />
+                                <stop offset="100%" stop-color="#8a7040" />
+                            </linearGradient>
+                        </defs>
+                        <circle cx="50" cy="50" r="48" stroke="url(#logoGoldGrad)" stroke-width="0.75"
+                            stroke-dasharray="2 4" />
+                        <circle cx="50" cy="50" r="44" stroke="url(#logoGoldGrad)" stroke-width="1.5" />
+                        <path d="M32 65V35L48 65V35" stroke="url(#logoGoldGrad)" stroke-width="3" stroke-linecap="round"
+                            stroke-linejoin="round" />
+                        <path d="M58 35H72M58 50H68M58 65H72M58 35V65" stroke="url(#logoGoldGrad)" stroke-width="3"
+                            stroke-linecap="round" stroke-linejoin="round" />
+                        <rect x="48.5" y="8" width="3" height="3" transform="rotate(45 50 9.5)"
+                            fill="url(#logoGoldGrad)" />
+                        <rect x="48.5" y="89" width="3" height="3" transform="rotate(45 50 90.5)"
+                            fill="url(#logoGoldGrad)" />
+                    </svg>
+                </div>
+                <span class="nav-brand">Noir Essence<sup>™</sup></span>
+            </a>
+            <div class="nav-links" id="navLinks">
+                <a href="index.html" class="nav-link">Home</a>
+                <a href="index.html#collections" class="nav-link active">Collections</a>
+                <a href="index.html#story" class="nav-link">Our Story</a>
+                <a href="index.html#testimonials" class="nav-link">Reviews</a>
+            </div>
+            <div class="nav-actions">
+                <button class="nav-cart-btn" id="themeToggleBtn" aria-label="Toggle Theme" style="font-size: 1.2rem; cursor: pointer; color: var(--gold); background: none; border: none;">
+                    🌓
+                </button>
+                <button class="nav-cart-btn" id="navCartBtn" aria-label="View Cart">
+                    <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                        stroke-width="1.5">
+                        <path d="M6 2L3 6v14a2 2 0 002 2h14a2 2 0 002-2V6l-3-4z" />
+                        <line x1="3" y1="6" x2="21" y2="6" />
+                        <path d="M16 10a4 4 0 01-8 0" />
+                    </svg>
+                    <span class="cart-badge" id="cartBadge">0</span>
+                </button>
+                <a href="index.html#collections" class="btn-nav-cta"><span>Shop All</span></a>
+                <button class="hamburger" id="hamburger" aria-label="Menu">
+                    <span></span><span></span><span></span>
+                </button>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Product Hero -->
+    <section class="product-hero">
+        <div class="product-hero-container">
+            <!-- 3D Visual -->
+            <div class="pd-visual" data-aos="zoom-in">
+                <div class="pd-3d-scene">
+                    <div class="pd-3d-wrapper" id="pd3DWrapper">
+                        <div class="pd-image-wrapper">
+                            <img src="velvet-oud-p.png" alt="Velvet Oud Perfume" class="pd-product-image">
+                        </div>
+                        <div class="pd-floats">
+                            <div class="pd-fl"
+                                style="width:12px; height:12px; background:rgba(178,163,138,0.15); top:10%; left:10%;">
+                            </div>
+                            <div class="pd-fl"
+                                style="width:8px; height:8px; background:rgba(178,163,138,0.1); bottom:20%; right:15%; animation-delay:1s;">
+                            </div>
+                        </div>
+                        <div class="pd-orbit pd-orbit-1"></div>
+                        <div class="pd-orbit pd-orbit-2"></div>
+                    </div>
+                    <div class="pd-glow pd-glow-1" style="background: rgba(178, 163, 138, 0.05);"></div>
+                    <div class="pd-glow pd-glow-2" style="background: rgba(178, 163, 138, 0.02);"></div>
+                </div>
+            </div>
+
+            <!-- Product Info -->
+            <div class="pd-info" data-aos="fade-left">
+                <div class="pd-breadcrumb">
+                    <a href="index.html">Home</a> <svg viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                        stroke-width="2">
+                        <path d="M9 18l6-6-6-6" />
+                    </svg>
+                    <a href="index.html#collections">Collections</a> <svg viewBox="0 0 24 24" fill="none"
+                        stroke="currentColor" stroke-width="2">
+                        <path d="M9 18l6-6-6-6" />
+                    </svg>
+                    <span>Velvet Oud</span>
+                </div>
+
+                <div class="pd-badges">
+                    <span class="pd-badge pd-badge-best">Bestseller</span>
+                    <span class="pd-badge pd-badge-best">Award Winner</span>
+                </div>
+
+                <div class="pd-category">Eau de Parfum</div>
+                <h1 class="pd-name">Velvet <span class="gold-text">Oud</span></h1>
+                <p class="pd-tagline">"The Whispers of a Golden Era."</p>
+
+                <div class="pd-rating">
+                    <span class="pd-stars">★★★★★</span>
+                    <span class="pd-rating-text"><strong>4.9</strong>/5 (840 Verified Reviews)</span>
+                </div>
+
+                <p class="pd-short-desc">
+                    Velvet Oud is a majestic composition that pays homage to the legendary agarwood.
+                    It opens with the brilliance of saffron and rose, descending into a heart of rich oud and warm
+                    amber,
+                    leaving a trail of pure sophistication.
+                </p>
+
+                <div class="pd-price-block">
+                    <span class="pd-price-new">₹5,999</span>
+                    <span class="pd-price-old">₹7,999</span>
+                    <span class="pd-price-save">Save 25%</span>
+                </div>
+
+                <div class="pd-variants">
+                    <div class="pd-variant-label">Volume</div>
+                    <div class="pd-variant-options">
+                        <button class="pd-variant-btn" data-price="2,499" data-old-price="3,299">30ml</button>
+                        <button class="pd-variant-btn" data-price="3,899" data-old-price="5,199">50ml</button>
+                        <button class="pd-variant-btn active" data-price="5,999" data-old-price="7,999">100ml</button>
+                    </div>
+                </div>
+
+                <div class="pd-actions">
+                    <div class="pd-quantity">
+                        <button class="pd-qty-btn" id="qtyMinus">−</button>
+                        <input type="number" class="pd-qty-input" id="qtyInput" value="1" min="1" max="10">
+                        <button class="pd-qty-btn" id="qtyPlus">+</button>
+                    </div>
+                    <button class="pd-add-cart" id="pdAddCart">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                            stroke-width="2">
+                            <path d="M6 2L3 6v14a2 2 0 002 2h14a2 2 0 002-2V6l-3-4z" />
+                            <line x1="3" y1="6" x2="21" y2="6" />
+                            <path d="M16 10a4 4 0 01-8 0" />
+                        </svg>
+                        Add to Bag
+                    </button>
+                    <button class="pd-wishlist" id="pdWishlist">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                            stroke-width="2">
+                            <path
+                                d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z" />
+                        </svg>
+                    </button>
+                </div>
+
+                <div class="pd-trust">
+                    <div class="pd-trust-item">
+                        <span class="pd-trust-icon">✨</span>
+                        <div class="pd-trust-text">Handcrafted<br>in India</div>
+                    </div>
+                    <div class="pd-trust-item">
+                        <span class="pd-trust-icon">🌿</span>
+                        <div class="pd-trust-text">100% Vegan<br>Formula</div>
+                    </div>
+                    <div class="pd-trust-item">
+                        <span class="pd-trust-icon">🚚</span>
+                        <div class="pd-trust-text">Express<br>Delivery</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Tabs Section -->
+    <section class="pd-tabs-section">
+        <div class="pd-tabs-container">
+            <div class="pd-tabs-nav">
+                <button class="pd-tab-btn active" data-tab="tab-story">The Story</button>
+                <button class="pd-tab-btn" data-tab="tab-notes">Fragrance Notes</button>
+                <button class="pd-tab-btn" data-tab="tab-ingredients">Ingredients</button>
+                <button class="pd-tab-btn" data-tab="tab-reviews">Reviews</button>
+            </div>
+
+            <!-- Story Tab -->
+            <div class="pd-tab-panel active" id="tab-story">
+                <div class="pd-story">
+                    <div class="pd-story-content">
+                        <h3>A Legacy Inscribed in <span class="gold-text">Gold</span></h3>
+                        <p>
+                            Velvet Oud was born from a desire to capture the essence of a midnight desert palace.
+                            It is a scent of power and mystery, designed for those who command presence without saying a
+                            word.
+                        </p>
+                        <p>
+                            The story begins with the finest agarwood sourced from the depths of the Assam forests,
+                            aged for two decades to achieve its characteristic velvety depth.
+                            We blended this "Liquid Gold" with the delicate sweetness of Taif Rose, creating a
+                            symphony of contrasts that is both ancient and modern.
+                        </p>
+                        <ul class="pd-story-highlights">
+                            <li><span class="check">♦</span> Hand-harvested Agarwood from Assam</li>
+                            <li><span class="check">♦</span> Macerated for 12 months for peak complexity</li>
+                            <li><span class="check">♦</span> Traditionally steam-distilled Taif Rose</li>
+                        </ul>
+                    </div>
+                    <div class="pd-story-stats">
+                        <div class="pd-stat-card">
+                            <div class="pd-stat-value gold-text">12hr+</div>
+                            <div class="pd-stat-label">Longevity</div>
+                        </div>
+                        <div class="pd-stat-card">
+                            <div class="pd-stat-value gold-text">Extrait</div>
+                            <div class="pd-stat-label">Strength</div>
+                        </div>
+                        <div class="pd-stat-card">
+                            <div class="pd-stat-value gold-text">Rare</div>
+                            <div class="pd-stat-label">Edition</div>
+                        </div>
+                        <div class="pd-stat-card">
+                            <div class="pd-stat-value gold-text">Bold</div>
+                            <div class="pd-stat-label">Silage</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Notes Tab -->
+            <div class="pd-tab-panel" id="tab-notes">
+                <div class="pd-notes">
+                    <h3>Olfactory <span class="gold-text">Pyramid</span></h3>
+                    <div class="pd-notes-pyramid">
+                        <div class="pd-note-tier">
+                            <div class="pd-note-tier-head">
+                                <div class="pd-note-tier-label">Top Notes</div>
+                                <div class="pd-note-tier-time">0-30 Mins</div>
+                            </div>
+                            <div class="pd-note-items">
+                                <span class="pd-note-chip">Assam Saffron</span>
+                                <span class="pd-note-chip">Taif Rose</span>
+                                <span class="pd-note-chip">Bergamot</span>
+                            </div>
+                        </div>
+                        <div class="pd-note-tier">
+                            <div class="pd-note-tier-head">
+                                <div class="pd-note-tier-label">Heart Notes</div>
+                                <div class="pd-note-tier-time">1-4 Hours</div>
+                            </div>
+                            <div class="pd-note-items">
+                                <span class="pd-note-chip">Indonesian Oud</span>
+                                <span class="pd-note-chip">Warm Amber</span>
+                                <span class="pd-note-chip">Burning Incense</span>
+                            </div>
+                        </div>
+                        <div class="pd-note-tier">
+                            <div class="pd-note-tier-head">
+                                <div class="pd-note-tier-label">Base Notes</div>
+                                <div class="pd-note-tier-time">Stay 12hr+</div>
+                            </div>
+                            <div class="pd-note-items">
+                                <span class="pd-note-chip">Sandalwood</span>
+                                <span class="pd-note-chip">White Musk</span>
+                                <span class="pd-note-chip">Patchouli</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Ingredients Tab -->
+            <div class="pd-tab-panel" id="tab-ingredients">
+                <div class="pd-ingredients">
+                    <h3>Purest <span class="gold-text">Essences</span></h3>
+                    <div class="pd-ingredients-grid">
+                        <div class="pd-ingredient-card" style="border-left-color: #c9a96e;">
+                            <span class="pd-ingredient-icon">🪵</span>
+                            <div class="pd-ingredient-name">Agarwood (Oud)</div>
+                            <div class="pd-ingredient-origin">Origin: Assam, India</div>
+                            <p class="pd-ingredient-desc">Sourced from diseased Aquilaria trees, this resinous heartwood
+                                produces a complex, woody, and animalic scent that is more valuable than gold.</p>
+                        </div>
+                        <div class="pd-ingredient-card" style="border-left-color: #e8d5a8;">
+                            <span class="pd-ingredient-icon">✨</span>
+                            <div class="pd-ingredient-name">Iranian Saffron</div>
+                            <div class="pd-ingredient-origin">Origin: Khorasan</div>
+                            <p class="pd-ingredient-desc">Known as 'Red Gold', our saffron adds a leathery, bittersweet,
+                                and earthy tone that gives Velvet Oud its initial brilliance.</p>
+                        </div>
+                        <div class="pd-ingredient-card" style="border-left-color: #d4789c;">
+                            <span class="pd-ingredient-icon">🌹</span>
+                            <div class="pd-ingredient-name">Taif Rose</div>
+                            <div class="pd-ingredient-origin">Origin: Saudi Arabia</div>
+                            <p class="pd-ingredient-desc">Cultivated in the majestic mountains of Taif, these roses
+                                offer a uniquely potent, spicy, and honey-like floral aroma.</p>
+                        </div>
+                        <div class="pd-ingredient-card" style="border-left-color: #8a7040;">
+                            <span class="pd-ingredient-icon">🏺</span>
+                            <div class="pd-ingredient-name">Baltic Amber</div>
+                            <div class="pd-ingredient-origin">Origin: Nordic Coast</div>
+                            <p class="pd-ingredient-desc">A fossilized resin accord that provides a warm, sweet, and
+                                comforting base, ensuring the fragrance's incredible longevity.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Reviews Tab -->
+            <div class="pd-tab-panel" id="tab-reviews">
+                <div class="pd-reviews">
+                    <h3>Customer <span class="gold-text">Aura</span></h3>
+                    <div class="pd-reviews-summary">
+                        <div class="pd-review-avg">
+                            <div class="pd-review-avg-number">4.9</div>
+                            <div class="pd-review-avg-stars">★★★★★</div>
+                            <div class="pd-review-avg-count">Based on 840 reviews</div>
+                        </div>
+                        <div class="pd-review-bars">
+                            <div class="pd-review-bar-row">
+                                <span class="pd-review-bar-label">5 ★</span>
+                                <div class="pd-review-bar-track">
+                                    <div class="pd-review-bar-fill" style="width: 92%;"></div>
+                                </div>
+                                <span class="pd-review-bar-count">773</span>
+                            </div>
+                            <div class="pd-review-bar-row">
+                                <span class="pd-review-bar-label">4 ★</span>
+                                <div class="pd-review-bar-track">
+                                    <div class="pd-review-bar-fill" style="width: 6%;"></div>
+                                </div>
+                                <span class="pd-review-bar-count">50</span>
+                            </div>
+                            <div class="pd-review-bar-row">
+                                <span class="pd-review-bar-label">3 ★</span>
+                                <div class="pd-review-bar-track">
+                                    <div class="pd-review-bar-fill" style="width: 1.5%;"></div>
+                                </div>
+                                <span class="pd-review-bar-count">12</span>
+                            </div>
+                            <div class="pd-review-bar-row">
+                                <span class="pd-review-bar-label">2 ★</span>
+                                <div class="pd-review-bar-track">
+                                    <div class="pd-review-bar-fill" style="width: 0.5%;"></div>
+                                </div>
+                                <span class="pd-review-bar-count">4</span>
+                            </div>
+                            <div class="pd-review-bar-row">
+                                <span class="pd-review-bar-label">1 ★</span>
+                                <div class="pd-review-bar-track">
+                                    <div class="pd-review-bar-fill" style="width: 0%;"></div>
+                                </div>
+                                <span class="pd-review-bar-count">1</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="pd-reviews-list">
+                        <div class="pd-review-card">
+                            <div class="pd-review-top">
+                                <div class="pd-reviewer">
+                                    <div class="pd-reviewer-avatar"
+                                        style="color: var(--gold); border-color: var(--gold);">RK</div>
+                                    <div class="pd-reviewer-details">
+                                        <strong>Rohan Kapoor</strong>
+                                        <span>Architect • Verified Buyer</span>
+                                    </div>
+                                </div>
+                                <div class="pd-review-stars">★★★★★</div>
+                            </div>
+                            <p class="pd-review-text">"The finest Oud I've ever used. It's powerful but surprisingly
+                                smooth. Lasts forever on clothes."</p>
+                            <span class="pd-verified">✓ Verified Purchase</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer-container">
+            <div class="footer-logo-row" style="display: flex; justify-content: center; margin-bottom: 20px;">
+                <div class="logo-wrapper" style="width: 52px; height: 52px;">
+                    <svg viewBox="0 0 100 100" class="logo-svg" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <defs>
+                            <linearGradient id="footerGoldGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+                                <stop offset="0%" stop-color="#f5e6ad" />
+                                <stop offset="50%" stop-color="#c9a96e" />
+                                <stop offset="100%" stop-color="#8a7040" />
+                            </linearGradient>
+                        </defs>
+                        <circle cx="50" cy="50" r="48" stroke="url(#footerGoldGrad)" stroke-width="0.75"
+                            stroke-dasharray="2 4" />
+                        <circle cx="50" cy="50" r="44" stroke="url(#footerGoldGrad)" stroke-width="1.5" />
+                        <path d="M32 65V35L48 65V35" stroke="url(#footerGoldGrad)" stroke-width="3"
+                            stroke-linecap="round" stroke-linejoin="round" />
+                        <path d="M58 35H72M58 50H68M58 65H72M58 35V65" stroke="url(#footerGoldGrad)" stroke-width="3"
+                            stroke-linecap="round" stroke-linejoin="round" />
+                        <rect x="48.5" y="8" width="3" height="3" transform="rotate(45 50 9.5)"
+                            fill="url(#footerGoldGrad)" />
+                        <rect x="48.5" y="89" width="3" height="3" transform="rotate(45 50 90.5)"
+                            fill="url(#footerGoldGrad)" />
+                    </svg>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2026 Noir Essence™. All rights reserved.</p>
+                <p>Handcrafted in India</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Toast -->
+    <div class="toast" id="toast">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M22 11.08V12a10 10 0 11-5.93-9.14" />
+            <polyline points="22 4 12 14.01 9 11.01" />
+        </svg>
+        <span id="toastMessage">Added to bag!</span>
+    </div>
+
+    <script src="product-detail.js"></script>
+</body>
+
+</html>

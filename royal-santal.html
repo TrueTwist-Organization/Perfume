@@ -1,0 +1,382 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Royal Santal — NOIR ESSENCE™ Luxury Perfumery</title>
+    <meta name="description"
+        content="Experience Royal Santal. A sacred blend of Indian Sandalwood, Cardamom, and Iris. The spirit of eternal peace.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,400&family=Outfit:wght@300;400;500;600&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="product-detail.css">
+    <style>
+        :root {
+            --product-color: #c2b6a0;
+            --product-glow: rgba(194, 182, 160, 0.08);
+        }
+
+        .gold-text {
+            background: linear-gradient(135deg, #dcd4c6, #c2b6a0);
+            -webkit-background-clip: text;
+            background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        /* Image Styling */
+        .pd-image-wrapper {
+            position: relative;
+            z-index: 5;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            filter: drop-shadow(0 15px 40px rgba(0, 0, 0, 0.1));
+        }
+
+        .pd-product-image {
+            width: 100%;
+            max-width: 380px;
+            height: auto;
+            border-radius: 20px;
+            animation: imageFloat 6s ease-in-out infinite;
+        }
+
+        @keyframes imageFloat {
+
+            0%,
+            100% {
+                transform: translateY(0) rotate(0deg);
+            }
+
+            50% {
+                transform: translateY(-12px) rotate(1deg);
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="site-video-bg">
+        <video autoplay muted loop playsinline>
+            <source src="royal-santal-bg.mp4" type="video/mp4">
+        </video>
+        <div class="site-video-overlay"></div>
+    </div>
+    <div class="cursor-glow" id="cursorGlow"></div>
+    <div class="particles" id="particles"></div>
+
+    <!-- Navbar -->
+    <nav class="navbar" id="navbar">
+        <div class="nav-container">
+            <a href="index.html" class="nav-logo">
+                <div class="logo-wrapper">
+                    <svg viewBox="0 0 100 100" class="logo-svg" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <defs>
+                            <linearGradient id="logoGoldGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+                                <stop offset="0%" stop-color="#f5e6ad" />
+                                <stop offset="50%" stop-color="#c9a96e" />
+                                <stop offset="100%" stop-color="#8a7040" />
+                            </linearGradient>
+                        </defs>
+                        <circle cx="50" cy="50" r="48" stroke="url(#logoGoldGrad)" stroke-width="0.75"
+                            stroke-dasharray="2 4" />
+                        <circle cx="50" cy="50" r="44" stroke="url(#logoGoldGrad)" stroke-width="1.5" />
+                        <path d="M32 65V35L48 65V35" stroke="url(#logoGoldGrad)" stroke-width="3" stroke-linecap="round"
+                            stroke-linejoin="round" />
+                        <path d="M58 35H72M58 50H68M58 65H72M58 35V65" stroke="url(#logoGoldGrad)" stroke-width="3"
+                            stroke-linecap="round" stroke-linejoin="round" />
+                        <rect x="48.5" y="8" width="3" height="3" transform="rotate(45 50 9.5)"
+                            fill="url(#logoGoldGrad)" />
+                        <rect x="48.5" y="89" width="3" height="3" transform="rotate(45 50 90.5)"
+                            fill="url(#logoGoldGrad)" />
+                    </svg>
+                </div>
+                <span class="nav-brand">Noir Essence<sup>™</sup></span>
+            </a>
+            <div class="nav-links" id="navLinks">
+                <a href="index.html" class="nav-link">Home</a>
+                <a href="index.html#collections" class="nav-link active">Collections</a>
+                <a href="index.html#story" class="nav-link">Our Story</a>
+            </div>
+            <div class="nav-actions">
+                <button class="nav-cart-btn" id="themeToggleBtn" aria-label="Toggle Theme" style="font-size: 1.2rem; cursor: pointer; color: var(--gold); background: none; border: none;">
+                    🌓
+                </button>
+                <button class="nav-cart-btn" id="navCartBtn" aria-label="View Cart">
+                    <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                        stroke-width="1.5">
+                        <path d="M6 2L3 6v14a2 2 0 002 2h14a2 2 0 002-2V6l-3-4z" />
+                        <line x1="3" y1="6" x2="21" y2="6" />
+                        <path d="M16 10a4 4 0 01-8 0" />
+                    </svg>
+                    <span class="cart-badge" id="cartBadge">0</span>
+                </button>
+                <a href="index.html#collections" class="btn-nav-cta"><span>Shop All</span></a>
+                <button class="hamburger" id="hamburger" aria-label="Menu">
+                    <span></span><span></span><span></span>
+                </button>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Product Hero -->
+    <section class="product-hero">
+        <div class="product-hero-container">
+            <div class="pd-visual" data-aos="zoom-in">
+                <div class="pd-3d-scene">
+                    <div class="pd-3d-wrapper" id="pd3DWrapper">
+                        <div class="pd-image-wrapper">
+                            <img src="royal-santal-p.png" alt="Royal Santal Perfume" class="pd-product-image">
+                        </div>
+                        <div class="pd-orbit pd-orbit-1"></div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="pd-info" data-aos="fade-left">
+                <div class="pd-breadcrumb">
+                    <a href="index.html">Home</a> <svg viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                        stroke-width="2">
+                        <path d="M9 18l6-6-6-6" />
+                    </svg>
+                    <span>Royal Santal</span>
+                </div>
+                <div class="pd-category">Eau de Parfum</div>
+                <h1 class="pd-name">Royal <span class="gold-text">Santal</span></h1>
+                <p class="pd-tagline">"Spirit of the Sacred Forests."</p>
+
+                <div class="pd-rating">
+                    <span class="pd-stars">★★★★★</span>
+                    <span class="pd-rating-text"><strong>4.9</strong>/5 (410 Verified Reviews)</span>
+                </div>
+
+                <p class="pd-short-desc">
+                    Royal Santal is a meditative journey. It combines the sacred creaminess of Indian Sandalwood
+                    with
+                    the
+                    powdery elegance of Iris and the warmth of Mediterranean Cardamom.
+                </p>
+
+                <div class="pd-price-block">
+                    <span class="pd-price-new">₹5,499</span>
+                    <span class="pd-price-old">₹6,999</span>
+                    <span class="pd-price-save">Save 21%</span>
+                </div>
+
+                <div class="pd-variants" style="margin-top: 25px;">
+                    <div class="pd-variant-label">Volume</div>
+                    <div class="pd-variant-options">
+                        <button class="pd-variant-btn" data-price="2,299" data-old-price="2,999">30ml</button>
+                        <button class="pd-variant-btn" data-price="3,599" data-old-price="4,599">50ml</button>
+                        <button class="pd-variant-btn active" data-price="5,499" data-old-price="6,999">100ml</button>
+                    </div>
+                </div>
+
+                <div class="pd-actions">
+                    <div class="pd-quantity">
+                        <button class="pd-qty-btn" id="qtyMinus">−</button>
+                        <input type="number" class="pd-qty-input" id="qtyInput" value="1" min="1">
+                        <button class="pd-qty-btn" id="qtyPlus">+</button>
+                    </div>
+                    <button class="pd-add-cart" id="pdAddCart">Add to Bag</button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Tabs Section -->
+    <section class="pd-tabs-section">
+        <div class="pd-tabs-container">
+            <div class="pd-tabs-nav">
+                <button class="pd-tab-btn active" data-tab="tab-story">The Story</button>
+                <button class="pd-tab-btn" data-tab="tab-notes">Notes</button>
+                <button class="pd-tab-btn" data-tab="tab-ingredients">Ingredients</button>
+                <button class="pd-tab-btn" data-tab="tab-reviews">Reviews</button>
+            </div>
+
+            <div class="pd-tab-panel active" id="tab-story">
+                <div class="pd-story">
+                    <div class="pd-story-content">
+                        <h3>Spirit of the <span class="gold-text">Sacred</span></h3>
+                        <p>
+                            Inspired by the ancient temples of Mysore, Royal Santal is a scent that brings inner
+                            peace
+                            and strength.
+                            We used double-distilled sandalwood to ensure a creaminess that lingers on the skin like
+                            a
+                            second soul.
+                        </p>
+                        <ul class="pd-story-highlights">
+                            <li><span class="check">♦</span> Sustainable Mysore Sandalwood</li>
+                            <li><span class="check">♦</span> Orris Butter Essence</li>
+                            <li><span class="check">♦</span> Himalayan Cedarwood Extracts</li>
+                        </ul>
+                    </div>
+                    <div class="pd-story-stats">
+                        <div class="pd-stat-card">
+                            <div class="pd-stat-value gold-text">12hr+</div>
+                            <div class="pd-stat-label">Longevity</div>
+                        </div>
+                        <div class="pd-stat-card">
+                            <div class="pd-stat-value gold-text">Sacred</div>
+                            <div class="pd-stat-label">Strength</div>
+                        </div>
+                        <div class="pd-stat-card">
+                            <div class="pd-stat-value gold-text">Heritage</div>
+                            <div class="pd-stat-label">Edition</div>
+                        </div>
+                        <div class="pd-stat-card">
+                            <div class="pd-stat-value gold-text">Serene</div>
+                            <div class="pd-stat-label">Silage</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Notes Tab -->
+            <div class="pd-tab-panel" id="tab-notes">
+                <div class="pd-notes">
+                    <h3>Olfactory <span class="gold-text">Pyramid</span></h3>
+                    <div class="pd-notes-pyramid">
+                        <div class="pd-note-tier">
+                            <div class="pd-note-tierhead">
+                                <div class="pd-note-tier-label">Top Notes</div>
+                            </div>
+                            <div class="pd-note-items">
+                                <span class="pd-note-chip">Cardamom</span>
+                                <span class="pd-note-chip">Bergamot</span>
+                            </div>
+                        </div>
+                        <div class="pd-note-tier">
+                            <div class="pd-note-tierhead">
+                                <div class="pd-note-tier-label">Heart Notes</div>
+                            </div>
+                            <div class="pd-note-items">
+                                <span class="pd-note-chip">Indian Sandalwood</span>
+                                <span class="pd-note-chip">Tuscan Iris</span>
+                            </div>
+                        </div>
+                        <div class="pd-note-tier">
+                            <div class="pd-note-tierhead">
+                                <div class="pd-note-tier-label">Base Notes</div>
+                            </div>
+                            <div class="pd-note-items">
+                                <span class="pd-note-chip">Himalayan Cedarwood</span>
+                                <span class="pd-note-chip">Tonka Bean</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Ingredients Tab -->
+            <div class="pd-tab-panel" id="tab-ingredients">
+                <div class="pd-ingredients">
+                    <h3>Purest <span class="gold-text">Essences</span></h3>
+                    <div class="pd-ingredients-grid">
+                        <div class="pd-ingredient-card" style="border-left-color: #c9a96e;">
+                            <span class="pd-ingredient-icon">🪵</span>
+                            <div class="pd-ingredient-name">Mysore Sandalwood</div>
+                            <p class="pd-ingredient-desc">Sustainably harvested from the sacred groves of Mysore,
+                                providing a creamy, butter-like woody aroma.</p>
+                        </div>
+                        <div class="pd-ingredient-card" style="border-left-color: #e8d5a8;">
+                            <span class="pd-ingredient-icon">🌱</span>
+                            <div class="pd-ingredient-name">Green Cardamom</div>
+                            <p class="pd-ingredient-desc">A spice that adds a cool, herbal, and slightly sweet
+                                opening
+                                that enlivens the senses.</p>
+                        </div>
+                        <div class="pd-ingredient-card" style="border-left-color: #b4a0c8;">
+                            <span class="pd-ingredient-icon">🌸</span>
+                            <div class="pd-ingredient-name">Tuscan Iris</div>
+                            <p class="pd-ingredient-desc">The precious orris root provides a powdery, elegant, and
+                                sophisticated floral heart.</p>
+                        </div>
+                        <div class="pd-ingredient-card" style="border-left-color: #8d6e63;">
+                            <span class="pd-ingredient-icon">🌲</span>
+                            <div class="pd-ingredient-name">Himalayan Cedar</div>
+                            <p class="pd-ingredient-desc">Adds a grounding, dry woody character that enhances the
+                                fragrance's strength and longevity.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Reviews Tab -->
+            <div class="pd-tab-panel" id="tab-reviews">
+                <div class="pd-reviews">
+                    <h3>Customer <span class="gold-text">Aura</span></h3>
+                    <div class="pd-reviews-summary">
+                        <div class="pd-review-avg">
+                            <div class="pd-review-avg-number">4.9</div>
+                            <div class="pd-review-avg-stars" style="color: var(--product-color);">★★★★★</div>
+                            <div class="pd-review-avg-count">Based on 150 reviews</div>
+                        </div>
+                        <div class="pd-review-bars">
+                            <div class="pd-review-bar-row">
+                                <span class="pd-review-bar-label">5 ★</span>
+                                <div class="pd-review-bar-track">
+                                    <div class="pd-review-bar-fill"
+                                        style="width: 90%; background: var(--product-color);"></div>
+                                </div>
+                                <span class="pd-review-bar-count">135</span>
+                            </div>
+                            <div class="pd-review-bar-row">
+                                <span class="pd-review-bar-label">4 ★</span>
+                                <div class="pd-review-bar-track">
+                                    <div class="pd-review-bar-fill"
+                                        style="width: 7%; background: var(--product-color);"></div>
+                                </div>
+                                <span class="pd-review-bar-count">10</span>
+                            </div>
+                            <div class="pd-review-bar-row">
+                                <span class="pd-review-bar-label">3 ★</span>
+                                <div class="pd-review-bar-track">
+                                    <div class="pd-review-bar-fill"
+                                        style="width: 2%; background: var(--product-color);"></div>
+                                </div>
+                                <span class="pd-review-bar-count">3</span>
+                            </div>
+                            <div class="pd-review-bar-row">
+                                <span class="pd-review-bar-label">2 ★</span>
+                                <div class="pd-review-bar-track">
+                                    <div class="pd-review-bar-fill"
+                                        style="width: 1%; background: var(--product-color);"></div>
+                                </div>
+                                <span class="pd-review-bar-count">2</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="pd-reviews-list">
+                        <div class="pd-review-card">
+                            <div class="pd-review-top">
+                                <div class="pd-reviewer">
+                                    <div class="pd-reviewer-avatar"
+                                        style="color: var(--product-color); border-color: var(--product-color);">RK
+                                    </div>
+                                    <div class="pd-reviewer-details">
+                                        <strong>Rohan Kapoor</strong>
+                                        <span>Architect • Verified Buyer</span>
+                                    </div>
+                                </div>
+                                <div class="pd-review-stars" style="color: var(--product-color);">★★★★★</div>
+                            </div>
+                            <p class="pd-review-text">"The most calming sandalwood I've encountered. It feels sacred and
+                                grounded. The longevity is impressive, easily lasting through the entire day."</p>
+                            <span class="pd-verified">✓ Verified Purchase</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <script src="product-detail.js"></script>
+</body>
+
+</html>

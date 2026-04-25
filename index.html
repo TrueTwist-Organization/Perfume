@@ -1,0 +1,677 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NOIR ESSENCE™ — Luxury Perfume House | Discover Your Signature Scent</title>
+    <meta name="description"
+        content="NOIR ESSENCE — Handcrafted luxury perfumes. Discover signature fragrances blending rare ingredients from across the world. Explore our exclusive collections.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;0,800;0,900;1,400;1,700&family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400&family=Outfit:wght@300;400;500;600;700&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <div class="cursor-glow" id="cursorGlow"></div>
+    <div class="particles" id="particles"></div>
+
+
+    <!-- ═══════════════════════════════════ NAVBAR ═══════════════════════════════════ -->
+    <nav class="navbar" id="navbar">
+        <div class="nav-container">
+            <a href="index.html" class="nav-logo">
+                <div class="logo-wrapper">
+                    <svg viewBox="0 0 100 100" class="logo-svg" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <defs>
+                            <linearGradient id="logoGoldGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+                                <stop offset="0%" stop-color="#f5e6ad" />
+                                <stop offset="50%" stop-color="#c9a96e" />
+                                <stop offset="100%" stop-color="#8a7040" />
+                            </linearGradient>
+                        </defs>
+                        <!-- Outer Decorative Ring -->
+                        <circle cx="50" cy="50" r="48" stroke="url(#logoGoldGrad)" stroke-width="0.75"
+                            stroke-dasharray="2 4" />
+                        <circle cx="50" cy="50" r="44" stroke="url(#logoGoldGrad)" stroke-width="1.5" />
+
+                        <!-- Stylized Monogram NE -->
+                        <path d="M32 65V35L48 65V35" stroke="url(#logoGoldGrad)" stroke-width="3" stroke-linecap="round"
+                            stroke-linejoin="round" />
+                        <path d="M58 35H72M58 50H68M58 65H72M58 35V65" stroke="url(#logoGoldGrad)" stroke-width="3"
+                            stroke-linecap="round" stroke-linejoin="round" />
+
+                        <!-- Center Diamond -->
+                        <rect x="48.5" y="8" width="3" height="3" transform="rotate(45 50 9.5)"
+                            fill="url(#logoGoldGrad)" />
+                        <rect x="48.5" y="89" width="3" height="3" transform="rotate(45 50 90.5)"
+                            fill="url(#logoGoldGrad)" />
+                    </svg>
+                </div>
+                <span class="nav-brand">Noir Essence<sup>™</sup></span>
+            </a>
+
+            <div class="nav-links" id="navLinks">
+                <a href="#hero" class="nav-link active">Home</a>
+                <a href="#collections" class="nav-link">Collections</a>
+                <a href="#notes" class="nav-link">Fragrance Notes</a>
+                <a href="#story" class="nav-link">Our Story</a>
+                <a href="#testimonials" class="nav-link">Reviews</a>
+            </div>
+
+            <div class="nav-actions">
+                <button class="nav-cart-btn" id="themeToggleBtn" aria-label="Toggle Theme" style="font-size: 1.2rem; cursor: pointer; color: var(--gold); background: none; border: none;">
+                    🌓
+                </button>
+                <button class="nav-cart-btn" id="navCartBtn" aria-label="View Cart">
+                    <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                        stroke-width="1.5">
+                        <path d="M6 2L3 6v14a2 2 0 002 2h14a2 2 0 002-2V6l-3-4z" />
+                        <line x1="3" y1="6" x2="21" y2="6" />
+                        <path d="M16 10a4 4 0 01-8 0" />
+                    </svg>
+                    <span class="cart-badge" id="cartBadge">0</span>
+                </button>
+                <a href="#collections" class="btn-nav-cta"><span>Shop Now</span></a>
+                <button class="hamburger" id="hamburger" aria-label="Menu">
+                    <span></span><span></span><span></span>
+                </button>
+            </div>
+        </div>
+    </nav>
+
+    <!-- ═══════════════════════════════════ HERO ═══════════════════════════════════ -->
+    <section class="hero" id="hero">
+        <div class="hero-video-bg" id="heroVideoBg">
+            <video id="heroBgVideo" autoplay muted loop playsinline class="bg-video">
+                <source src="velvet-oud-bg.mp4" type="video/mp4">
+            </video>
+            <div class="hero-video-overlay"></div>
+        </div>
+
+        <div class="hero-container">
+            <!-- Left: Content -->
+            <div class="hero-content" data-aos="fade-up">
+                <div class="hero-tag">Luxury Perfumery Since 2018</div>
+
+                <h1 class="hero-title" id="heroTitle">
+                    <span class="line">The Art of</span>
+                    <span class="line"><span class="gold-text italic">Timeless</span></span>
+                    <span class="line">Fragrance</span>
+                </h1>
+
+                <p class="hero-description" id="heroDesc">
+                    Handcrafted luxury perfumes blending the world's rarest botanicals.
+                    Each scent is a journey — an intimate expression of elegance, crafted for those
+                    who dare to be unforgettable.
+                </p>
+
+                <div class="hero-actions">
+                    <button class="btn-primary"
+                        onclick="document.getElementById('collections').scrollIntoView({behavior:'smooth'})">Discover
+                        Collection</button>
+                    <button class="btn-secondary"
+                        onclick="document.getElementById('story').scrollIntoView({behavior:'smooth'})">Our
+                        Story</button>
+                </div>
+
+                <div class="hero-stats">
+                    <div class="hero-stat">
+                        <div class="hero-stat-value gold-text">50+</div>
+                        <div class="hero-stat-label">Rare Ingredients</div>
+                    </div>
+                    <div class="hero-stat">
+                        <div class="hero-stat-value gold-text">12</div>
+                        <div class="hero-stat-label">Signature Scents</div>
+                    </div>
+                    <div class="hero-stat">
+                        <div class="hero-stat-value gold-text">25K+</div>
+                        <div class="hero-stat-label">Happy Customers</div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Right: 3D Perfume Bottle -->
+            <div class="hero-visual" data-aos="zoom-in" data-aos-delay="200">
+                <div class="bottle-scene" id="bottleScene">
+                    <div class="bottle-3d" id="bottle3D">
+
+                        <div class="perfume-bottle shape-classic" id="heroPerfume" style="display: none;">
+                            <div class="bottle-cap" id="heroCap"></div>
+                            <div class="bottle-neck"></div>
+                            <div class="bottle-body" id="heroBody">
+                                <div class="bottle-liquid" id="heroLiquid"></div>
+                                <div class="bottle-label">
+                                    <div class="label-brand">Noir Essence</div>
+                                    <div class="label-name" id="heroLabelName">VELVET</div>
+                                    <div class="label-line"></div>
+                                    <div class="label-type">Eau de Parfum</div>
+                                    <div class="label-vol">100 ml · 3.4 fl oz</div>
+                                </div>
+                                <div class="bottle-shine"></div>
+                                <div class="bottle-shine-2"></div>
+                            </div>
+                            <div class="bottle-shadow"></div>
+                        </div>
+
+                        <!-- Real Product Image (High Fidelity) -->
+                        <div class="hero-image-container" id="heroImageContainer" style="display: flex; opacity: 1;">
+                            <img src="velvet-oud-p.png" alt="Luxurious Perfume" id="heroProductImage"
+                                class="hero-product-img">
+                        </div>
+
+
+
+
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ═══════════════════════════════════ BRANDS MARQUEE ═══════════════════════════════════ -->
+    <section class="brands-section">
+        <div class="brands-marquee" id="brandsMarquee">
+            <div class="brand-item">Handcrafted in India</div>
+            <img src="velvet-oud-p.png" alt="" class="marquee-bottle">
+            <div class="brand-item">100% Natural Oils</div>
+            <img src="midnight-rose-p.png" alt="" class="marquee-bottle">
+            <div class="brand-item">Cruelty Free</div>
+            <img src="royal-santal-p.png" alt="" class="marquee-bottle">
+            <div class="brand-item">Vegan Formulas</div>
+            <img src="ocean-breeze-p.png" alt="" class="marquee-bottle">
+            <div class="brand-item">French Techniques</div>
+            <img src="mystic-amber-p.png" alt="" class="marquee-bottle">
+            <div class="brand-item">Rare Botanicals</div>
+            <img src="luna-noire-p.png" alt="" class="marquee-bottle">
+            <div class="brand-item">Long Lasting 12hr+</div>
+            <img src="velvet-oud-p.png" alt="" class="marquee-bottle">
+            <div class="brand-item">Luxury Packaging</div>
+            <img src="midnight-rose-p.png" alt="" class="marquee-bottle">
+
+            <!-- Duplicate for seamless loop -->
+            <div class="brand-item">Handcrafted in India</div>
+            <img src="velvet-oud-p.png" alt="" class="marquee-bottle">
+            <div class="brand-item">100% Natural Oils</div>
+            <img src="midnight-rose-p.png" alt="" class="marquee-bottle">
+            <div class="brand-item">Cruelty Free</div>
+            <img src="royal-santal-p.png" alt="" class="marquee-bottle">
+            <div class="brand-item">Vegan Formulas</div>
+            <img src="ocean-breeze-p.png" alt="" class="marquee-bottle">
+            <div class="brand-item">French Techniques</div>
+            <img src="mystic-amber-p.png" alt="" class="marquee-bottle">
+            <div class="brand-item">Rare Botanicals</div>
+            <img src="luna-noire-p.png" alt="" class="marquee-bottle">
+            <div class="brand-item">Long Lasting 12hr+</div>
+            <img src="velvet-oud-p.png" alt="" class="marquee-bottle">
+            <div class="brand-item">Luxury Packaging</div>
+            <img src="midnight-rose-p.png" alt="" class="marquee-bottle">
+        </div>
+    </section>
+
+    <!-- ═══════════════════════════════════ COLLECTIONS ═══════════════════════════════════ -->
+    <section class="collections" id="collections">
+        <div class="section-container">
+            <div class="section-header" data-aos="fade-up">
+                <span class="section-tag">Signature Fragrances</span>
+                <h2 class="section-title">Our Exclusive <span class="gold-text">Collection</span></h2>
+                <p class="section-subtitle">Each perfume is a masterpiece — a carefully composed symphony of the world's
+                    finest ingredients sourced from Grasse, Oman, and the Himalayas.</p>
+            </div>
+
+            <div class="collections-grid">
+                <!-- Perfume 1 -->
+                <div class="collection-card" data-aos="fade-up" data-aos-delay="0">
+                    <div class="card-badge">Bestseller</div>
+                    <div class="card-visual">
+                        <div class="card-image-wrap">
+                            <img src="velvet-oud-p.png" alt="Velvet Oud" class="card-img">
+                        </div>
+                    </div>
+                    <div class="card-info">
+                        <div class="card-category">Eau de Parfum</div>
+                        <h3 class="card-name"><a href="velvet-oud.html">Velvet <span class="gold-text">Oud</span></a>
+                        </h3>
+                        <p class="card-notes">Top: Saffron, Rose · Heart: Oud, Amber · Base: Sandalwood, Musk</p>
+                        <div class="card-meta">
+                            <div class="card-price">₹5,999 <span class="old">₹7,999</span></div>
+                            <button class="card-btn" aria-label="Add to bag" onclick="addToCart('Velvet Oud')">
+                                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                    stroke-width="2">
+                                    <path d="M6 2L3 6v14a2 2 0 002 2h14a2 2 0 002-2V6l-3-4z" />
+                                    <line x1="3" y1="6" x2="21" y2="6" />
+                                    <path d="M16 10a4 4 0 01-8 0" />
+                                </svg>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Perfume 2 -->
+                <div class="collection-card" data-aos="fade-up" data-aos-delay="100">
+                    <div class="card-badge"
+                        style="background:rgba(238,226,228,0.1);border-color:rgba(238,226,228,0.2);color:#d6c4c8">New
+                        Arrival</div>
+                    <div class="card-visual">
+                        <div class="card-image-wrap">
+                            <img src="midnight-rose-p.png" alt="Midnight Rosé" class="card-img">
+                        </div>
+                    </div>
+                    <div class="card-info">
+                        <div class="card-category" style="color:var(--rose)">Eau de Parfum</div>
+                        <h3 class="card-name"><a href="midnight-rose.html">Midnight <span
+                                    class="rose-text">Rosé</span></a></h3>
+                        <p class="card-notes">Top: Pink Pepper, Bergamot · Heart: Bulgarian Rose, Peony · Base:
+                            Patchouli, Vanilla</p>
+                        <div class="card-meta">
+                            <div class="card-price" style="color:var(--rose)">₹6,499 <span class="old">₹8,499</span>
+                            </div>
+                            <button class="card-btn" onclick="addToCart('Midnight Rosé')"
+                                style="border-color:rgba(238,226,228,0.2);color:var(--rose)">
+                                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                    stroke-width="2">
+                                    <path d="M6 2L3 6v14a2 2 0 002 2h14a2 2 0 002-2V6l-3-4z" />
+                                    <line x1="3" y1="6" x2="21" y2="6" />
+                                    <path d="M16 10a4 4 0 01-8 0" />
+                                </svg>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Perfume 3 -->
+                <div class="collection-card" data-aos="fade-up" data-aos-delay="200">
+                    <div class="card-visual">
+                        <div class="card-image-wrap">
+                            <img src="royal-santal-p.png" alt="Royal Santal" class="card-img">
+                        </div>
+                    </div>
+                    <div class="card-info">
+                        <div class="card-category">Eau de Parfum</div>
+                        <h3 class="card-name"><a href="royal-santal.html">Royal <span
+                                    class="gold-text">Santal</span></a></h3>
+                        <p class="card-notes">Top: Cardamom, Bergamot · Heart: Indian Sandalwood, Iris · Base:
+                            Cedarwood, Tonka Bean</p>
+                        <div class="card-meta">
+                            <div class="card-price">₹5,499 <span class="old">₹6,999</span></div>
+                            <button class="card-btn" onclick="addToCart('Royal Santal')">
+                                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                    stroke-width="2">
+                                    <path d="M6 2L3 6v14a2 2 0 002 2h14a2 2 0 002-2V6l-3-4z" />
+                                    <line x1="3" y1="6" x2="21" y2="6" />
+                                    <path d="M16 10a4 4 0 01-8 0" />
+                                </svg>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Perfume 4 -->
+                <div class="collection-card" data-aos="fade-up" data-aos-delay="0">
+                    <div class="card-visual">
+                        <div class="card-image-wrap">
+                            <img src="ocean-breeze-p.png" alt="Ocean Breeze" class="card-img">
+                        </div>
+                    </div>
+                    <div class="card-info">
+                        <div class="card-category" style="color:#b0c8e0">Eau de Toilette</div>
+                        <h3 class="card-name"><a href="ocean-breeze.html">Ocean <span
+                                    style="color:#b0c8e0">Breeze</span></a></h3>
+                        <p class="card-notes">Top: Sea Salt, Lime · Heart: White Tea, Jasmine · Base: Driftwood,
+                            Ambergris</p>
+                        <div class="card-meta">
+                            <div class="card-price" style="color:#b0c8e0">₹4,299 <span class="old">₹5,499</span></div>
+                            <button class="card-btn" onclick="addToCart('Ocean Breeze')"
+                                style="border-color:rgba(176,200,224,0.1);color:#b0c8e0">
+                                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                    stroke-width="2">
+                                    <path d="M6 2L3 6v14a2 2 0 002 2h14a2 2 0 002-2V6l-3-4z" />
+                                    <line x1="3" y1="6" x2="21" y2="6" />
+                                    <path d="M16 10a4 4 0 01-8 0" />
+                                </svg>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Perfume 5 -->
+                <div class="collection-card" data-aos="fade-up" data-aos-delay="100">
+                    <div class="card-badge"
+                        style="background:rgba(212,200,175,0.1);border-color:rgba(212,200,175,0.2);color:#d4c8af">
+                        Limited
+                        Edition</div>
+                    <div class="card-visual">
+                        <div class="card-image-wrap">
+                            <img src="mystic-amber-p.png" alt="Mystic Amber" class="card-img">
+                        </div>
+                    </div>
+                    <div class="card-info">
+                        <div class="card-category" style="color:#d4c8af">Extrait de Parfum</div>
+                        <h3 class="card-name"><a href="mystic-amber.html">Mystic <span
+                                    style="color:#d4c8af">Amber</span></a></h3>
+                        <p class="card-notes">Top: Cinnamon, Saffron · Heart: Frankincense, Amber · Base: Benzoin,
+                            Labdanum, Leather</p>
+                        <div class="card-meta">
+                            <div class="card-price" style="color:#d4c8af">₹8,999 <span class="old">₹11,999</span></div>
+                            <button class="card-btn" onclick="addToCart('Mystic Amber')"
+                                style="border-color:rgba(212,200,175,0.1);color:#d4c8af">
+                                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                    stroke-width="2">
+                                    <path d="M6 2L3 6v14a2 2 0 002 2h14a2 2 0 002-2V6l-3-4z" />
+                                    <line x1="3" y1="6" x2="21" y2="6" />
+                                    <path d="M16 10a4 4 0 01-8 0" />
+                                </svg>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Perfume 6 -->
+                <div class="collection-card" data-aos="fade-up" data-aos-delay="200">
+                    <div class="card-visual">
+                        <div class="card-image-wrap">
+                            <img src="luna-noire-p.png" alt="Luna Noire" class="card-img">
+                        </div>
+                    </div>
+                    <div class="card-info">
+                        <div class="card-category" style="color:#c4bcd4">Eau de Parfum</div>
+                        <h3 class="card-name"><a href="luna-noire.html">Luna <span
+                                    style="color:#c4bcd4">Noire</span></a></h3>
+                        <p class="card-notes">Top: Lavender, Violet Leaf · Heart: Orris, Jasmine Sambac · Base:
+                            Cashmeran, White Musk</p>
+                        <div class="card-meta">
+                            <div class="card-price" style="color:#c4bcd4">₹5,799 <span class="old">₹7,499</span></div>
+                            <button class="card-btn" onclick="addToCart('Luna Noire')"
+                                style="border-color:rgba(196,188,212,0.1);color:#c4bcd4">
+                                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                    stroke-width="2">
+                                    <path d="M6 2L3 6v14a2 2 0 002 2h14a2 2 0 002-2V6l-3-4z" />
+                                    <line x1="3" y1="6" x2="21" y2="6" />
+                                    <path d="M16 10a4 4 0 01-8 0" />
+                                </svg>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+                <div class="collections-footer" data-aos="fade-up">
+                    <button class="btn-primary"
+                        onclick="document.getElementById('notes').scrollIntoView({behavior:'smooth'})">Discover Full
+                        Collection</button>
+                </div>
+            </div>
+    </section>
+
+    <!-- ═══════════════════════════════════ FRAGRANCE NOTES ═══════════════════════════════════ -->
+    <section class="notes-section" id="notes">
+        <div class="section-container">
+            <div class="section-header" data-aos="fade-up">
+                <span class="section-tag">The Art of Scent</span>
+                <h2 class="section-title">Fragrance <span class="gold-text">Notes</span></h2>
+                <p class="section-subtitle">Every perfume unfolds in three acts — each note harmonizing to create an
+                    unforgettable olfactory experience.</p>
+            </div>
+
+            <div class="notes-grid">
+                <div class="note-card" data-aos="fade-up" data-aos-delay="0">
+                    <span class="note-icon">🌸</span>
+                    <h3 class="note-name">Top Notes</h3>
+                    <p class="note-desc">The first impression. Bright, volatile bursts of bergamot, pink pepper,
+                        saffron, and citrus that captivate within seconds of application.</p>
+                </div>
+
+                <div class="note-card" data-aos="fade-up" data-aos-delay="100">
+                    <span class="note-icon">🌹</span>
+                    <h3 class="note-name">Heart Notes</h3>
+                    <p class="note-desc">The soul of the fragrance. Rich florals and spices — Bulgarian rose, jasmine
+                        sambac, oud, and iris — emerge as top notes fade.</p>
+                </div>
+
+                <div class="note-card" data-aos="fade-up" data-aos-delay="200">
+                    <span class="note-icon">🪵</span>
+                    <h3 class="note-name">Base Notes</h3>
+                    <p class="note-desc">The lasting memory. Warm, deep anchors of sandalwood, amber, musk, and vanilla
+                        that linger on skin for 12+ hours.</p>
+                </div>
+
+                <div class="note-card" data-aos="fade-up" data-aos-delay="300">
+                    <span class="note-icon">✨</span>
+                    <h3 class="note-name">Sillage</h3>
+                    <p class="note-desc">The invisible trail you leave behind. Our perfumes are crafted for a beautiful,
+                        moderate sillage that captivates without overwhelming.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ═══════════════════════════════════ OUR STORY ═══════════════════════════════════ -->
+    <section class="story-section" id="story">
+        <div class="section-container">
+            <div class="story-grid">
+                <div class="story-visual" data-aos="fade-right">
+                    <div class="story-frame">
+                        <div class="story-inner-art">
+                            <div class="story-art-diamond"></div>
+                            <div class="story-art-text">Noir Essence</div>
+                            <div class="story-art-year">Est. MMXVIII</div>
+                        </div>
+                    </div>
+                    <div class="story-float-1"></div>
+                    <div class="story-float-2"></div>
+                </div>
+
+                <div class="story-content" data-aos="fade-left">
+                    <div class="story-tag">Our Heritage</div>
+                    <h2 class="story-title">Crafted with <span class="gold-text">Passion</span>, Worn with Elegance</h2>
+                    <p class="story-text">Born from a deep reverence for the art of perfumery, Noir Essence was founded
+                        in 2018 by a collective of master perfumers trained in Grasse, France — the world's perfume
+                        capital.</p>
+                    <p class="story-text">Every bottle represents hundreds of hours of meticulous craftsmanship. We
+                        source the rarest ingredients — Mysore sandalwood, Omani frankincense, Bulgarian rose otto — and
+                        blend them using time-honored French techniques.</p>
+
+                    <div class="story-features">
+                        <div class="story-feature">
+                            <div class="story-feature-icon">🇫🇷</div>
+                            <div class="story-feature-text">French Perfumery Techniques</div>
+                        </div>
+                        <div class="story-feature">
+                            <div class="story-feature-icon">🌿</div>
+                            <div class="story-feature-text">100% Natural Oils</div>
+                        </div>
+                        <div class="story-feature">
+                            <div class="story-feature-icon">🐰</div>
+                            <div class="story-feature-text">Certified Cruelty-Free</div>
+                        </div>
+                        <div class="story-feature">
+                            <div class="story-feature-icon">♻️</div>
+                            <div class="story-feature-text">Sustainable Sourcing</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ═══════════════════════════════════ TESTIMONIALS ═══════════════════════════════════ -->
+    <section class="testimonials-section" id="testimonials">
+        <div class="section-container">
+            <div class="section-header" data-aos="fade-up">
+                <span class="section-tag">What They Say</span>
+                <h2 class="section-title">Loved by <span class="gold-text">Thousands</span></h2>
+                <p class="section-subtitle">Our customers are our greatest ambassadors. Hear from those who have made
+                    Noir Essence their signature.</p>
+            </div>
+
+            <div class="testimonials-grid">
+                <div class="testimonial-card" data-aos="fade-up" data-aos-delay="0">
+                    <div class="testimonial-stars">★★★★★</div>
+                    <p class="testimonial-text">"Velvet Oud is liquid artistry. I receive compliments every single time
+                        I wear it. The sillage is perfect — present but never overwhelming. This is what luxury should
+                        smell like."</p>
+                    <div class="testimonial-author">
+                        <div class="testimonial-avatar">AS</div>
+                        <div>
+                            <div class="testimonial-name">Arjun Sharma</div>
+                            <div class="testimonial-role">Entrepreneur, Mumbai</div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="testimonial-card" data-aos="fade-up" data-aos-delay="100">
+                    <div class="testimonial-stars">★★★★★</div>
+                    <p class="testimonial-text">"Midnight Rosé became my signature scent the moment I tried it. The
+                        Bulgarian rose is authentic and the dry-down is intoxicating. I've replaced my entire perfume
+                        collection with this."</p>
+                    <div class="testimonial-author">
+                        <div class="testimonial-avatar"
+                            style="color:var(--rose);border-color:var(--rose);background:rgba(212,120,156,0.08)">NP
+                        </div>
+                        <div>
+                            <div class="testimonial-name">Nisha Patel</div>
+                            <div class="testimonial-role">Fashion Designer, Delhi</div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="testimonial-card" data-aos="fade-up" data-aos-delay="200">
+                    <div class="testimonial-stars">★★★★★</div>
+                    <p class="testimonial-text">"I gifted Mystic Amber to my father and now he refuses to wear anything
+                        else. The frankincense and leather notes make it incredibly sophisticated. Worth every single
+                        rupee."</p>
+                    <div class="testimonial-author">
+                        <div class="testimonial-avatar"
+                            style="color:#c4875a;border-color:#c4875a;background:rgba(160,100,70,0.08)">RK</div>
+                        <div>
+                            <div class="testimonial-name">Rohan Kapoor</div>
+                            <div class="testimonial-role">Architect, Bangalore</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ═══════════════════════════════════ CTA ═══════════════════════════════════ -->
+    <section class="cta-section">
+        <div class="cta-container">
+            <div class="cta-box" data-aos="fade-up">
+                <h2 class="cta-title">Join the <span class="gold-text">Inner Circle</span></h2>
+                <p class="cta-subtitle">Subscribe for exclusive early access, limited editions, and a complimentary
+                    scent guide.</p>
+                <form class="cta-form" id="ctaForm">
+                    <input type="email" class="cta-input" placeholder="Enter your email address" required>
+                    <button type="submit" class="cta-submit">Subscribe</button>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- ═══════════════════════════════════ FOOTER ═══════════════════════════════════ -->
+    <footer class="footer">
+        <div class="footer-container">
+            <div class="footer-grid">
+                <div class="footer-brand-col">
+                    <div class="footer-brand-logo">
+                        <div class="logo-wrapper" style="width: 64px; height: 64px; margin-bottom: 20px;">
+                            <svg viewBox="0 0 100 100" class="logo-svg" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <defs>
+                                    <linearGradient id="footerGoldGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+                                        <stop offset="0%" stop-color="#f5e6ad" />
+                                        <stop offset="50%" stop-color="#c9a96e" />
+                                        <stop offset="100%" stop-color="#8a7040" />
+                                    </linearGradient>
+                                </defs>
+                                <circle cx="50" cy="50" r="48" stroke="url(#footerGoldGrad)" stroke-width="0.75"
+                                    stroke-dasharray="2 4" />
+                                <circle cx="50" cy="50" r="44" stroke="url(#footerGoldGrad)" stroke-width="1.5" />
+                                <path d="M32 65V35L48 65V35" stroke="url(#footerGoldGrad)" stroke-width="3"
+                                    stroke-linecap="round" stroke-linejoin="round" />
+                                <path d="M58 35H72M58 50H68M58 65H72M58 35V65" stroke="url(#footerGoldGrad)"
+                                    stroke-width="3" stroke-linecap="round" stroke-linejoin="round" />
+                                <rect x="48.5" y="8" width="3" height="3" transform="rotate(45 50 9.5)"
+                                    fill="url(#footerGoldGrad)" />
+                                <rect x="48.5" y="89" width="3" height="3" transform="rotate(45 50 90.5)"
+                                    fill="url(#footerGoldGrad)" />
+                            </svg>
+                        </div>
+                    </div>
+                    <div class="footer-brand-name"><span class="gold-text">Noir Essence</span></div>
+                    <p class="footer-tagline">Luxury handcrafted perfumes for the discerning soul. Each scent, a
+                        masterpiece — each bottle, a work of art.</p>
+                    <div class="footer-socials">
+                        <a href="https://instagram.com" class="social-link" aria-label="Instagram">
+                            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                stroke-width="1.5">
+                                <rect x="2" y="2" width="20" height="20" rx="5" />
+                                <circle cx="12" cy="12" r="5" />
+                                <circle cx="17.5" cy="6.5" r="1.5" fill="currentColor" />
+                            </svg>
+                        </a>
+                        <a href="https://pinterest.com" class="social-link" aria-label="Pinterest">
+                            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                stroke-width="1.5">
+                                <circle cx="12" cy="12" r="10" />
+                                <path d="M8 21c1-3 2-6 3-8l2-3c1-2 3-2 4-1s1 3 0 5l-2 4" />
+                            </svg>
+                        </a>
+                        <a href="https://twitter.com" class="social-link" aria-label="Twitter/X">
+                            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                stroke-width="1.5">
+                                <path d="M4 4l16 16M20 4L4 20" />
+                            </svg>
+                        </a>
+                    </div>
+                </div>
+                <div class="footer-links">
+                    <h4>Shop</h4>
+                    <ul>
+                        <li><a href="#collections">All Perfumes</a></li>
+                        <li><a href="gift-sets.html">Gift Sets</a></li>
+                        <li><a href="discovery-kit.html">Discovery Kit</a></li>
+                        <li><a href="candles.html">Candles</a></li>
+                    </ul>
+                </div>
+                <div class="footer-links">
+                    <h4>Company</h4>
+                    <ul>
+                        <li><a href="#story">Our Story</a></li>
+                        <li><a href="ingredients.html">Ingredients</a></li>
+                        <li><a href="sustainability.html">Sustainability</a></li>
+                        <li><a href="careers.html">Careers</a></li>
+                    </ul>
+                </div>
+                <div class="footer-links">
+                    <h4>Support</h4>
+                    <ul>
+                        <li><a href="contact.html">Contact Us</a></li>
+                        <li><a href="faq.html">FAQ</a></li>
+                        <li><a href="shipping-policy.html">Shipping Policy</a></li>
+                        <li><a href="returns.html">Returns & Exchanges</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2026 Noir Essence™. All rights reserved.</p>
+                <p>Handcrafted with ♦ in India</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Toast -->
+    <div class="toast" id="toast">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M22 11.08V12a10 10 0 11-5.93-9.14" />
+            <polyline points="22 4 12 14.01 9 11.01" />
+        </svg>
+        <span id="toastMessage">Added to bag!</span>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+
+</html>

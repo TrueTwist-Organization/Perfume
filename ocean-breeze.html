@@ -1,0 +1,431 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ocean Breeze — NOIR ESSENCE™ Luxury Perfumery</title>
+    <meta name="description"
+        content="Discover Ocean Breeze. A refreshing blend of Mediterranean Sea Salt, Lime, and Driftwood. Pure coastal elegance.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,400&family=Outfit:wght@300;400;500;600&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="product-detail.css">
+    <style>
+        :root {
+            --product-color: #a0b8d2;
+            --product-glow: rgba(160, 184, 210, 0.08);
+        }
+
+        .gold-text {
+            background: linear-gradient(135deg, #bcd4eb, #a0b8d2);
+            -webkit-background-clip: text;
+            background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        /* Image Styling */
+        .pd-image-wrapper {
+            position: relative;
+            z-index: 5;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            filter: drop-shadow(0 15px 40px rgba(0, 0, 0, 0.1));
+        }
+
+        .pd-product-image {
+            width: 100%;
+            max-width: 380px;
+            height: auto;
+            border-radius: 20px;
+            animation: imageFloat 6s ease-in-out infinite;
+        }
+
+        @keyframes imageFloat {
+
+            0%,
+            100% {
+                transform: translateY(0) rotate(0deg);
+            }
+
+            50% {
+                transform: translateY(-12px) rotate(1deg);
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="site-video-bg">
+        <video autoplay muted loop playsinline>
+            <source src="ocean-breeze-bg.mp4" type="video/mp4">
+        </video>
+        <div class="site-video-overlay"></div>
+    </div>
+
+    <div class="cursor-glow" id="cursorGlow"
+        style="background: radial-gradient(circle, rgba(122,150,180,0.02) 0%, transparent 70%);"></div>
+    <div class="particles" id="particles"></div>
+
+    <!-- Navbar -->
+    <nav class="navbar" id="navbar">
+        <div class="nav-container">
+            <a href="index.html" class="nav-logo">
+                <div class="logo-wrapper">
+                    <svg viewBox="0 0 100 100" class="logo-svg" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <defs>
+                            <linearGradient id="logoGoldGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+                                <stop offset="0%" stop-color="#f5e6ad" />
+                                <stop offset="50%" stop-color="#c9a96e" />
+                                <stop offset="100%" stop-color="#8a7040" />
+                            </linearGradient>
+                        </defs>
+                        <circle cx="50" cy="50" r="48" stroke="url(#logoGoldGrad)" stroke-width="0.75"
+                            stroke-dasharray="2 4" />
+                        <circle cx="50" cy="50" r="44" stroke="url(#logoGoldGrad)" stroke-width="1.5" />
+                        <path d="M32 65V35L48 65V35" stroke="url(#logoGoldGrad)" stroke-width="3" stroke-linecap="round"
+                            stroke-linejoin="round" />
+                        <path d="M58 35H72M58 50H68M58 65H72M58 35V65" stroke="url(#logoGoldGrad)" stroke-width="3"
+                            stroke-linecap="round" stroke-linejoin="round" />
+                        <rect x="48.5" y="8" width="3" height="3" transform="rotate(45 50 9.5)"
+                            fill="url(#logoGoldGrad)" />
+                        <rect x="48.5" y="89" width="3" height="3" transform="rotate(45 50 90.5)"
+                            fill="url(#logoGoldGrad)" />
+                    </svg>
+                </div>
+                <span class="nav-brand">Noir Essence<sup>™</sup></span>
+            </a>
+            <div class="nav-links" id="navLinks">
+                <a href="index.html" class="nav-link">Home</a>
+                <a href="index.html#collections" class="nav-link active">Collections</a>
+                <a href="index.html#story" class="nav-link">Our Story</a>
+            </div>
+            <div class="nav-actions">
+                <button class="nav-cart-btn" id="themeToggleBtn" aria-label="Toggle Theme" style="font-size: 1.2rem; cursor: pointer; color: var(--gold); background: none; border: none;">
+                    🌓
+                </button>
+                <button class="nav-cart-btn" id="navCartBtn" aria-label="View Cart">
+                    <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                        stroke-width="1.5">
+                        <path d="M6 2L3 6v14a2 2 0 002 2h14a2 2 0 002-2V6l-3-4z" />
+                        <line x1="3" y1="6" x2="21" y2="6" />
+                        <path d="M16 10a4 4 0 01-8 0" />
+                    </svg>
+                    <span class="cart-badge" id="cartBadge">0</span>
+                </button>
+                <a href="index.html#collections" class="btn-nav-cta"
+                    style="border-color: var(--product-color); color: var(--product-color);"><span>Shop All</span></a>
+                <button class="hamburger" id="hamburger" aria-label="Menu">
+                    <span></span><span></span><span></span>
+                </button>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Product Hero -->
+    <section class="product-hero">
+        <div class="product-hero-container">
+            <div class="pd-visual" data-aos="zoom-in">
+                <div class="pd-3d-scene">
+                    <div class="pd-3d-wrapper" id="pd3DWrapper">
+                        <div class="pd-image-wrapper">
+                            <img src="ocean-breeze-p.png" alt="Ocean Breeze Perfume" class="pd-product-image">
+                        </div>
+                        <div class="pd-orbit pd-orbit-1" style="border-color: rgba(100, 140, 180, 0.1);"></div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="pd-info" data-aos="fade-left">
+                <div class="pd-breadcrumb">
+                    <a href="index.html">Home</a> <svg viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                        stroke-width="2">
+                        <path d="M9 18l6-6-6-6" />
+                    </svg>
+                    <span>Ocean Breeze</span>
+                </div>
+                <div class="pd-category" style="color: var(--product-color);">Eau de Toilette</div>
+                <h1 class="pd-name">Ocean <span class="gold-text">Breeze</span></h1>
+                <p class="pd-tagline">"The Infinite Horizon."</p>
+
+                <div class="pd-rating">
+                    <span class="pd-stars" style="color: var(--product-color);">★★★★★</span>
+                    <span class="pd-rating-text"><strong>4.7</strong>/5 (210 Verified Reviews)</span>
+                </div>
+
+                <p class="pd-short-desc">
+                    Ocean Breeze is a breath of fresh air. It captures the essence of a Mediterranean morning, with
+                    sparkling citrus, ozonic sea salt, and a grounded base of sun-bleached driftwood.
+                </p>
+
+                <div class="pd-price-block">
+                    <span class="pd-price-new" style="color: var(--product-color);">₹4,299</span>
+                    <span class="pd-price-old">₹5,499</span>
+                    <span class="pd-price-save"
+                        style="border-color: var(--product-color); color: var(--product-color); background: rgba(100,140,180,0.1);">Save
+                        22%</span>
+                </div>
+
+                <div class="pd-variants" style="margin-top: 25px;">
+                    <div class="pd-variant-label">Volume</div>
+                    <div class="pd-variant-options">
+                        <button class="pd-variant-btn" data-price="1,699" data-old-price="2,199">30ml</button>
+                        <button class="pd-variant-btn" data-price="2,799" data-old-price="3,599">50ml</button>
+                        <button class="pd-variant-btn active" data-price="4,299" data-old-price="5,499">100ml</button>
+                    </div>
+                </div>
+
+                <div class="pd-actions">
+                    <div class="pd-quantity">
+                        <button class="pd-qty-btn" id="qtyMinus">−</button>
+                        <input type="number" class="pd-qty-input" id="qtyInput" value="1" min="1">
+                        <button class="pd-qty-btn" id="qtyPlus">+</button>
+                    </div>
+                    <button class="pd-add-cart" id="pdAddCart"
+                        style="background: linear-gradient(135deg, #648cb4, #3a5c7c); color: white;">
+                        Add to Bag
+                    </button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Tabs Section -->
+    <section class="pd-tabs-section">
+        <div class="pd-tabs-container">
+            <div class="pd-tabs-nav">
+                <button class="pd-tab-btn active" data-tab="tab-story"
+                    style="--gradient-gold: linear-gradient(90deg, #648cb4, #a0c0e0);">The Story</button>
+                <button class="pd-tab-btn" data-tab="tab-notes">Notes</button>
+                <button class="pd-tab-btn" data-tab="tab-ingredients">Ingredients</button>
+                <button class="pd-tab-btn" data-tab="tab-reviews">Reviews</button>
+            </div>
+
+            <div class="pd-tab-panel active" id="tab-story">
+                <div class="pd-story">
+                    <div class="pd-story-content">
+                        <h3>Call of the <span class="gold-text">Ocean</span></h3>
+                        <p>
+                            We wanted to trap the energy of the crashing waves in a bottle.
+                            Ocean Breeze is for the explorers, the dreamers, and those who find solace in the infinite
+                            blue horizon.
+                        </p>
+                        <ul class="pd-story-highlights">
+                            <li><span class="check" style="color: var(--product-color);">♦</span> Mediterranean Sea Salt
+                            </li>
+                            <li><span class="check" style="color: var(--product-color);">♦</span> Flash-frozen Lime Peel
+                            </li>
+                            <li><span class="check" style="color: var(--product-color);">♦</span> Sun-drenched Driftwood
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="pd-story-stats">
+                        <div class="pd-stat-card">
+                            <div class="pd-stat-value gold-text">8hr+</div>
+                            <div class="pd-stat-label">Longevity</div>
+                        </div>
+                        <div class="pd-stat-card">
+                            <div class="pd-stat-value gold-text">Fresh</div>
+                            <div class="pd-stat-label">Strength</div>
+                        </div>
+                        <div class="pd-stat-card">
+                            <div class="pd-stat-value gold-text">Coastal</div>
+                            <div class="pd-stat-label">Edition</div>
+                        </div>
+                        <div class="pd-stat-card">
+                            <div class="pd-stat-value gold-text">Airy</div>
+                            <div class="pd-stat-label">Silage</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Notes Tab -->
+            <div class="pd-tab-panel" id="tab-notes">
+                <div class="pd-notes">
+                    <h3>Olfactory <span class="gold-text">Pyramid</span></h3>
+                    <div class="pd-notes-pyramid">
+                        <div class="pd-note-tier">
+                            <div class="pd-note-tierhead">
+                                <div class="pd-note-tier-label">Top Notes</div>
+                            </div>
+                            <div class="pd-note-items">
+                                <span class="pd-note-chip">Mediterranean Sea Salt</span>
+                                <span class="pd-note-chip">Frozen Lime</span>
+                            </div>
+                        </div>
+                        <div class="pd-note-tier">
+                            <div class="pd-note-tierhead">
+                                <div class="pd-note-tier-label">Heart Notes</div>
+                            </div>
+                            <div class="pd-note-items">
+                                <span class="pd-note-chip">White Tea</span>
+                                <span class="pd-note-chip">Water Jasmine</span>
+                            </div>
+                        </div>
+                        <div class="pd-note-tier">
+                            <div class="pd-note-tierhead">
+                                <div class="pd-note-tier-label">Base Notes</div>
+                            </div>
+                            <div class="pd-note-items">
+                                <span class="pd-note-chip">Sun-bleached Driftwood</span>
+                                <span class="pd-note-chip">Blue Ambergris</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Ingredients Tab -->
+            <div class="pd-tab-panel" id="tab-ingredients">
+                <div class="pd-ingredients">
+                    <h3>Purest <span class="gold-text">Essences</span></h3>
+                    <div class="pd-ingredients-grid">
+                        <div class="pd-ingredient-card" style="border-left-color: #648cb4;">
+                            <span class="pd-ingredient-icon">🌊</span>
+                            <div class="pd-ingredient-name">Mediterranean Sea Salt</div>
+                            <p class="pd-ingredient-desc">Solar-evaporated salt from the Spanish coast, providing a
+                                crisp, ozonic, and mineral freshness.</p>
+                        </div>
+                        <div class="pd-ingredient-card" style="border-left-color: #a0c0e0;">
+                            <span class="pd-ingredient-icon">🍋</span>
+                            <div class="pd-ingredient-name">Kaffir Lime</div>
+                            <p class="pd-ingredient-desc">Flash-frozen peel extract that delivers an explosive, citrusy
+                                brightness to the top transition.</p>
+                        </div>
+                        <div class="pd-ingredient-card" style="border-left-color: #ffffff;">
+                            <span class="pd-ingredient-icon">☕</span>
+                            <div class="pd-ingredient-name">White Tea</div>
+                            <p class="pd-ingredient-desc">Delicate, hand-picked silver needle tea leaves provide a
+                                clean, slightly floral heart note.</p>
+                        </div>
+                        <div class="pd-ingredient-card" style="border-left-color: #d1d9e0;">
+                            <span class="pd-ingredient-icon">🪵</span>
+                            <div class="pd-ingredient-name">Driftwood Accord</div>
+                            <p class="pd-ingredient-desc">A complex blend of cedar and vetiver that mimics the scent of
+                                salt-soaked wood dried in the sun.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Reviews Tab -->
+            <div class="pd-tab-panel" id="tab-reviews">
+                <div class="pd-reviews">
+                    <h3>Customer <span class="gold-text">Aura</span></h3>
+                    <div class="pd-reviews-summary">
+                        <div class="pd-review-avg">
+                            <div class="pd-review-avg-number">4.7</div>
+                            <div class="pd-review-avg-stars" style="color: var(--product-color);">★★★★★</div>
+                            <div class="pd-review-avg-count">Based on 210 reviews</div>
+                        </div>
+                        <div class="pd-review-bars">
+                            <div class="pd-review-bar-row">
+                                <span class="pd-review-bar-label">5 ★</span>
+                                <div class="pd-review-bar-track">
+                                    <div class="pd-review-bar-fill"
+                                        style="width: 82%; background: var(--product-color);"></div>
+                                </div>
+                                <span class="pd-review-bar-count">172</span>
+                            </div>
+                            <div class="pd-review-bar-row">
+                                <span class="pd-review-bar-label">4 ★</span>
+                                <div class="pd-review-bar-track">
+                                    <div class="pd-review-bar-fill"
+                                        style="width: 12%; background: var(--product-color);"></div>
+                                </div>
+                                <span class="pd-review-bar-count">25</span>
+                            </div>
+                            <div class="pd-review-bar-row">
+                                <span class="pd-review-bar-label">3 ★</span>
+                                <div class="pd-review-bar-track">
+                                    <div class="pd-review-bar-fill"
+                                        style="width: 4%; background: var(--product-color);"></div>
+                                </div>
+                                <span class="pd-review-bar-count">8</span>
+                            </div>
+                            <div class="pd-review-bar-row">
+                                <span class="pd-review-bar-label">2 ★</span>
+                                <div class="pd-review-bar-track">
+                                    <div class="pd-review-bar-fill"
+                                        style="width: 2%; background: var(--product-color);"></div>
+                                </div>
+                                <span class="pd-review-bar-count">4</span>
+                            </div>
+                            <div class="pd-review-bar-row">
+                                <span class="pd-review-bar-label">1 ★</span>
+                                <div class="pd-review-bar-track">
+                                    <div class="pd-review-bar-fill"
+                                        style="width: 0%; background: var(--product-color);"></div>
+                                </div>
+                                <span class="pd-review-bar-count">1</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="pd-reviews-list">
+                        <div class="pd-review-card">
+                            <div class="pd-review-top">
+                                <div class="pd-reviewer">
+                                    <div class="pd-reviewer-avatar"
+                                        style="color: var(--product-color); border-color: var(--product-color);">AS
+                                    </div>
+                                    <div class="pd-reviewer-details">
+                                        <strong>Aryan Sharma</strong>
+                                        <span>Travel Blogger • Verified Buyer</span>
+                                    </div>
+                                </div>
+                                <div class="pd-review-stars" style="color: var(--product-color);">★★★★★</div>
+                            </div>
+                            <p class="pd-review-text">"Ocean Breeze is like a vacation in a bottle. It's so fresh and
+                                invigorating. The sea salt and lime opening is incredible for morning wear."</p>
+                            <span class="pd-verified">✓ Verified Purchase</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer-container">
+            <div class="footer-logo-row" style="display: flex; justify-content: center; margin-bottom: 20px;">
+                <div class="logo-wrapper" style="width: 52px; height: 52px;">
+                    <svg viewBox="0 0 100 100" class="logo-svg" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <defs>
+                            <linearGradient id="footerGoldGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+                                <stop offset="0%" stop-color="#f5e6ad" />
+                                <stop offset="50%" stop-color="#c9a96e" />
+                                <stop offset="100%" stop-color="#8a7040" />
+                            </linearGradient>
+                        </defs>
+                        <circle cx="50" cy="50" r="48" stroke="url(#footerGoldGrad)" stroke-width="0.75"
+                            stroke-dasharray="2 4" />
+                        <circle cx="50" cy="50" r="44" stroke="url(#footerGoldGrad)" stroke-width="1.5" />
+                        <path d="M32 65V35L48 65V35" stroke="url(#footerGoldGrad)" stroke-width="3"
+                            stroke-linecap="round" stroke-linejoin="round" />
+                        <path d="M58 35H72M58 50H68M58 65H72M58 35V65" stroke="url(#footerGoldGrad)" stroke-width="3"
+                            stroke-linecap="round" stroke-linejoin="round" />
+                        <rect x="48.5" y="8" width="3" height="3" transform="rotate(45 50 9.5)"
+                            fill="url(#footerGoldGrad)" />
+                        <rect x="48.5" y="89" width="3" height="3" transform="rotate(45 50 90.5)"
+                            fill="url(#footerGoldGrad)" />
+                    </svg>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2026 Noir Essence™. All rights reserved.</p>
+                <p>Handcrafted in India</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="product-detail.js"></script>
+</body>
+
+</html>
+```

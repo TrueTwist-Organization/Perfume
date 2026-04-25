@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Information — NOIR ESSENCE™ | Luxury Perfumery</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,400&family=Outfit:wght@300;400;500;600&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+    <style>
+        .page-header {
+            padding: 180px 0 80px;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .page-header h1 {
+            font-weight: 400;
+            color: var(--text-primary);
+        }
+
+        .content-section {
+            padding: 100px 0;
+            min-height: 50vh;
+            background: var(--bg-primary);
+        }
+
+        .info-card {
+            background: var(--bg-card);
+            border: 1px solid var(--border-subtle);
+            border-radius: 32px;
+            padding: 60px;
+            box-shadow: var(--shadow-card);
+        }
+
+        .info-title {
+            font-family: 'Playfair Display';
+            font-size: 32px;
+            margin-bottom: 30px;
+            color: var(--text-primary);
+            font-weight: 400;
+        }
+
+        .info-text {
+            color: var(--text-secondary);
+            line-height: 1.8;
+            font-size: 18px;
+            margin-bottom: 20px;
+        }
+    
+        @media (max-width: 768px) {
+            .page-header {
+                padding: 120px 0 40px;
+            }
+            .content-section {
+                padding: 40px 0;
+            }
+            .info-card {
+                padding: 30px 20px;
+                border-radius: 20px;
+            }
+            .info-title {
+                font-size: 24px;
+            }
+            .info-text {
+                font-size: 16px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="cursor-glow" id="cursorGlow"></div>
+    <div class="particles" id="particles"></div>
+
+    <!-- Navbar -->
+    <nav class="navbar" id="navbar">
+        <div class="nav-container">
+            <a href="index.html" class="nav-logo">
+                <div class="logo-diamond">
+                    <svg viewBox="0 0 40 40" fill="none">
+                        <rect x="20" y="2" width="25" height="25" rx="3" transform="rotate(45 20 2)"
+                            stroke="url(#goldGrad)" stroke-width="1.5" fill="none" />
+                        <text x="20" y="24" text-anchor="middle" fill="url(#goldGrad)" font-family="Playfair Display"
+                            font-size="13" font-weight="700">N</text>
+                    </svg>
+                </div>
+                <span class="nav-brand">Noir Essence<sup>™</sup></span>
+            </a>
+            <div class="nav-links" id="navLinks">
+                <a href="index.html" class="nav-link">Home</a>
+                <a href="index.html#collections" class="nav-link">Collections</a>
+                <a href="index.html#story" class="nav-link">Our Story</a>
+            </div>
+            <div class="nav-actions">
+                <a href="index.html#collections" class="btn-nav-cta"><span>Shop Now</span></a>
+            </div>
+        </div>
+    </nav>
+
+    <header class="page-header">
+        <div class="video-bg-wrapper">
+            <video autoplay muted loop playsinline class="bg-video-el">
+                <source src="https://assets.mixkit.co/videos/preview/mixkit-moon-and-clouds-at-night-4041-large.mp4"
+                    type="video/mp4">
+            </video>
+            <div class="video-bg-overlay"></div>
+        </div>
+        <div class="section-container" style="position: relative; z-index: 2;">
+            <span class="section-tag" id="pageTag">Shop</span>
+            <h1 class="section-title" id="pageTitle">Luxury Gift <span class="gold-text">Sets</span></h1>
+        </div>
+    </header>
+
+    <section class="content-section">
+        <div class="section-container">
+            <div class="info-card">
+                <h2 class="info-title" id="infoHeading">The Perfect Gift</h2>
+                <div id="infoBody">
+                    <p class="info-text">Welcome to the Luxury Gift Sets page. We are currently curating this section to provide you with the most exquisite experience possible. At Noir Essence, every detail matters, and we are working tirelessly to ensure this information reflects our standards of excellence.</p>
+                    <p class="info-text">Please check back soon, or contact our concierge for immediate assistance regarding our products and services.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer-container">
+            <div class="footer-grid">
+                <div class="footer-brand-col">
+                    <div class="footer-brand-name"><span class="gold-text">Noir Essence</span></div>
+                    <p class="footer-tagline">Luxury handcrafted perfumes for the discerning soul.</p>
+                </div>
+                <!-- Standard Footer Columns -->
+                <div class="footer-links">
+                    <h4>Shop</h4>
+                    <ul>
+                        <li><a href="index.html#collections">All Perfumes</a></li>
+                        <li><a href="gift-sets.html">Gift Sets</a></li>
+                        <li><a href="discovery-kit.html">Discovery Kit</a></li>
+                        <li><a href="candles.html">Candles</a></li>
+                    </ul>
+                </div>
+                <div class="footer-links">
+                    <h4>Company</h4>
+                    <ul>
+                        <li><a href="index.html#story">Our Story</a></li>
+                        <li><a href="ingredients.html">Ingredients</a></li>
+                        <li><a href="sustainability.html">Sustainability</a></li>
+                        <li><a href="careers.html">Careers</a></li>
+                    </ul>
+                </div>
+                <div class="footer-links">
+                    <h4>Support</h4>
+                    <ul>
+                        <li><a href="contact.html">Contact Us</a></li>
+                        <li><a href="faq.html">FAQ</a></li>
+                        <li><a href="shipping-policy.html">Shipping Policy</a></li>
+                        <li><a href="returns.html">Returns & Exchanges</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2026 Noir Essence™. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+
+</html>

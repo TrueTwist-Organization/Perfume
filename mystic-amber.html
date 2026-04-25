@@ -1,0 +1,390 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mystic Amber — NOIR ESSENCE™ Luxury Perfumery</title>
+    <meta name="description"
+        content="Discover Mystic Amber. A seductive blend of Saffron, Amber Resin, and Baltic Labdanum. The ancient warmth of luxury.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,400&family=Outfit:wght@300;400;500;600&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="product-detail.css">
+    <style>
+        :root {
+            --product-color: #cbbba0;
+            --product-glow: rgba(203, 187, 160, 0.08);
+        }
+
+        .gold-text {
+            background: linear-gradient(135deg, #e5dfd2, #cbbba0);
+            -webkit-background-clip: text;
+            background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        /* Image Styling */
+        .pd-image-wrapper {
+            position: relative;
+            z-index: 5;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            filter: drop-shadow(0 15px 40px rgba(0, 0, 0, 0.1));
+        }
+
+        .pd-product-image {
+            width: 100%;
+            max-width: 380px;
+            height: auto;
+            border-radius: 20px;
+            animation: imageFloat 6s ease-in-out infinite;
+        }
+
+        @keyframes imageFloat {
+
+            0%,
+            100% {
+                transform: translateY(0) rotate(0deg);
+            }
+
+            50% {
+                transform: translateY(-12px) rotate(1deg);
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="site-video-bg">
+        <video autoplay muted loop playsinline>
+            <source src="mystic-amber-bg.mp4" type="video/mp4">
+        </video>
+        <div class="site-video-overlay"></div>
+    </div>
+
+    <div class="cursor-glow" id="cursorGlow"></div>
+    <div class="particles" id="particles"></div>
+
+    <!-- Navbar -->
+    <nav class="navbar" id="navbar">
+        <div class="nav-container">
+            <a href="index.html" class="nav-logo">
+                <div class="logo-wrapper">
+                    <svg viewBox="0 0 100 100" class="logo-svg" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <defs>
+                            <linearGradient id="logoGoldGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+                                <stop offset="0%" stop-color="#f5e6ad" />
+                                <stop offset="50%" stop-color="#c9a96e" />
+                                <stop offset="100%" stop-color="#8a7040" />
+                            </linearGradient>
+                        </defs>
+                        <circle cx="50" cy="50" r="48" stroke="url(#logoGoldGrad)" stroke-width="0.75"
+                            stroke-dasharray="2 4" />
+                        <circle cx="50" cy="50" r="44" stroke="url(#logoGoldGrad)" stroke-width="1.5" />
+                        <path d="M32 65V35L48 65V35" stroke="url(#logoGoldGrad)" stroke-width="3" stroke-linecap="round"
+                            stroke-linejoin="round" />
+                        <path d="M58 35H72M58 50H68M58 65H72M58 35V65" stroke="url(#logoGoldGrad)" stroke-width="3"
+                            stroke-linecap="round" stroke-linejoin="round" />
+                        <rect x="48.5" y="8" width="3" height="3" transform="rotate(45 50 9.5)"
+                            fill="url(#logoGoldGrad)" />
+                        <rect x="48.5" y="89" width="3" height="3" transform="rotate(45 50 90.5)"
+                            fill="url(#logoGoldGrad)" />
+                    </svg>
+                </div>
+                <span class="nav-brand">Noir Essence<sup>™</sup></span>
+            </a>
+            <div class="nav-links" id="navLinks">
+                <a href="index.html" class="nav-link">Home</a>
+                <a href="index.html#collections" class="nav-link active">Collections</a>
+                <a href="index.html#story" class="nav-link">Our Story</a>
+            </div>
+            <div class="nav-actions">
+                <button class="nav-cart-btn" id="themeToggleBtn" aria-label="Toggle Theme" style="font-size: 1.2rem; cursor: pointer; color: var(--gold); background: none; border: none;">
+                    🌓
+                </button>
+                <button class="nav-cart-btn" id="navCartBtn" aria-label="View Cart">
+                    <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                        stroke-width="1.5">
+                        <path d="M6 2L3 6v14a2 2 0 002 2h14a2 2 0 002-2V6l-3-4z" />
+                        <line x1="3" y1="6" x2="21" y2="6" />
+                        <path d="M16 10a4 4 0 01-8 0" />
+                    </svg>
+                    <span class="cart-badge" id="cartBadge">0</span>
+                </button>
+                <a href="index.html#collections" class="btn-nav-cta"
+                    style="border-color: var(--product-color); color: var(--product-color);"><span>Shop All</span></a>
+                <button class="hamburger" id="hamburger" aria-label="Menu">
+                    <span></span><span></span><span></span>
+                </button>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Product Hero -->
+    <section class="product-hero">
+        <div class="product-hero-container">
+            <div class="pd-visual" data-aos="zoom-in">
+                <div class="pd-3d-scene">
+                    <div class="pd-3d-wrapper" id="pd3DWrapper">
+                        <div class="pd-image-wrapper">
+                            <img src="mystic-amber-p.png" alt="Mystic Amber Perfume" class="pd-product-image">
+                        </div>
+                        <div class="pd-orbit pd-orbit-1" style="border-color: rgba(160, 100, 70, 0.1);"></div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="pd-info" data-aos="fade-left">
+                <div class="pd-breadcrumb">
+                    <a href="index.html">Home</a> <svg viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                        stroke-width="2">
+                        <path d="M9 18l6-6-6-6" />
+                    </svg>
+                    <span>Mystic Amber</span>
+                </div>
+                <div class="pd-badges"><span class="pd-badge pd-badge-ltd">Limited Edition</span></div>
+                <div class="pd-category" style="color: var(--product-color);">Extrait de Parfum</div>
+                <h1 class="pd-name">Mystic <span class="gold-text">Amber</span></h1>
+                <p class="pd-tagline">"The Sacred Golden Glow."</p>
+
+                <div class="pd-rating">
+                    <span class="pd-stars" style="color: var(--product-color);">★★★★★</span>
+                    <span class="pd-rating-text"><strong>5.0</strong>/5 (180 Verified Reviews)</span>
+                </div>
+
+                <p class="pd-short-desc">
+                    Mystic Amber is a rich, balsamic masterpiece. It wraps the wearer in a velvet cloak of fossilized
+                    amber,
+                    Omani frankincense, and aged leather, creating a scent that feels like a forgotten royal secret.
+                </p>
+
+                <div class="pd-price-block">
+                    <span class="pd-price-new" style="color: var(--product-color);">₹8,999</span>
+                    <span class="pd-price-old">₹11,999</span>
+                    <span class="pd-price-save"
+                        style="border-color: var(--product-color); color: var(--product-color); background: rgba(196,135,90,0.1);">Save
+                        25%</span>
+                </div>
+
+                <div class="pd-variants" style="margin-top: 25px;">
+                    <div class="pd-variant-label">Volume</div>
+                    <div class="pd-variant-options">
+                        <button class="pd-variant-btn" data-price="3,499" data-old-price="4,599">30ml</button>
+                        <button class="pd-variant-btn" data-price="5,799" data-old-price="7,699">50ml</button>
+                        <button class="pd-variant-btn active" data-price="8,999" data-old-price="11,999">100ml</button>
+                    </div>
+                </div>
+
+                <div class="pd-actions">
+                    <div class="pd-quantity">
+                        <button class="pd-qty-btn" id="qtyMinus">−</button>
+                        <input type="number" class="pd-qty-input" id="qtyInput" value="1" min="1">
+                        <button class="pd-qty-btn" id="qtyPlus">+</button>
+                    </div>
+                    <button class="pd-add-cart" id="pdAddCart"
+                        style="background: linear-gradient(135deg, #c4875a, #8a5a3a); color: white;">
+                        Add to Bag
+                    </button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Tabs Section -->
+    <section class="pd-tabs-section">
+        <div class="pd-tabs-container">
+            <div class="pd-tabs-nav">
+                <button class="pd-tab-btn active" data-tab="tab-story"
+                    style="--gradient-gold: linear-gradient(90deg, #c4875a, #e0a07a);">The Story</button>
+                <button class="pd-tab-btn" data-tab="tab-notes">Notes</button>
+                <button class="pd-tab-btn" data-tab="tab-ingredients">Ingredients</button>
+                <button class="pd-tab-btn" data-tab="tab-reviews">Reviews</button>
+            </div>
+
+            <div class="pd-tab-panel active" id="tab-story">
+                <div class="pd-story">
+                    <div class="pd-story-content">
+                        <h3>Echoes of the <span class="gold-text">Past</span></h3>
+                        <p>
+                            Mystic Amber was created to evoke the warmth of a library filled with ancient scrolls.
+                            It is a slow-burning scent that reveals its complexity over hours, telling a story of luxury
+                            that transcends time.
+                        </p>
+                        <ul class="pd-story-highlights">
+                            <li><span class="check" style="color: var(--product-color);">♦</span> Fossilized Amber Resin
+                            </li>
+                            <li><span class="check" style="color: var(--product-color);">♦</span> Royal Omani
+                                Frankincense</li>
+                            <li><span class="check" style="color: var(--product-color);">♦</span> Rare Baltic Labdanum
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="pd-story-stats">
+                        <div class="pd-stat-card">
+                            <div class="pd-stat-value gold-text">15hr+</div>
+                            <div class="pd-stat-label">Longevity</div>
+                        </div>
+                        <div class="pd-stat-card">
+                            <div class="pd-stat-value gold-text">Extrait</div>
+                            <div class="pd-stat-label">Strength</div>
+                        </div>
+                        <div class="pd-stat-card">
+                            <div class="pd-stat-value gold-text">Ancient</div>
+                            <div class="pd-stat-label">Edition</div>
+                        </div>
+                        <div class="pd-stat-card">
+                            <div class="pd-stat-value gold-text">Mystic</div>
+                            <div class="pd-stat-label">Silage</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Notes Tab -->
+            <div class="pd-tab-panel" id="tab-notes">
+                <div class="pd-notes">
+                    <h3>Olfactory <span class="gold-text">Pyramid</span></h3>
+                    <div class="pd-notes-pyramid">
+                        <div class="pd-note-tier">
+                            <div class="pd-note-tierhead">
+                                <div class="pd-note-tier-label">Top Notes</div>
+                            </div>
+                            <div class="pd-note-items">
+                                <span class="pd-note-chip">Warm Cinnamon</span>
+                                <span class="pd-note-chip">Kashmiri Saffron</span>
+                            </div>
+                        </div>
+                        <div class="pd-note-tier">
+                            <div class="pd-note-tierhead">
+                                <div class="pd-note-tier-label">Heart Notes</div>
+                            </div>
+                            <div class="pd-note-items">
+                                <span class="pd-note-chip">Omani Frankincense</span>
+                                <span class="pd-note-chip">Fossilized Amber</span>
+                            </div>
+                        </div>
+                        <div class="pd-note-tier">
+                            <div class="pd-note-tierhead">
+                                <div class="pd-note-tier-label">Base Notes</div>
+                            </div>
+                            <div class="pd-note-items">
+                                <span class="pd-note-chip">Baltic Labdanum</span>
+                                <span class="pd-note-chip">Benzoin Resin</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Ingredients Tab -->
+            <div class="pd-tab-panel" id="tab-ingredients">
+                <div class="pd-ingredients">
+                    <h3>Ancient <span class="gold-text">Resins</span></h3>
+                    <div class="pd-ingredients-grid">
+                        <div class="pd-ingredient-card" style="border-left-color: #c4875a;">
+                            <span class="pd-ingredient-icon">🏺</span>
+                            <div class="pd-ingredient-name">Fossilized Amber</div>
+                            <p class="pd-ingredient-desc">A resin blend that recreates the scent of prehistoric pine
+                                resin, offering a warm, sweet, and smoky depth.</p>
+                        </div>
+                        <div class="pd-ingredient-card" style="border-left-color: #a06446;">
+                            <span class="pd-ingredient-icon">💨</span>
+                            <div class="pd-ingredient-name">Royal Frankincense</div>
+                            <p class="pd-ingredient-desc">Sourced from the Dhofar region of Oman, this "desert tears"
+                                resin adds a sacred, lemony incense quality.</p>
+                        </div>
+                        <div class="pd-ingredient-card" style="border-left-color: #8a5a3a;">
+                            <span class="pd-ingredient-icon">🍯</span>
+                            <div class="pd-ingredient-name">Baltic Labdanum</div>
+                            <p class="pd-ingredient-desc">A sticky resin from the Cistus shrub that provides a powerful,
+                                leathery, and balsamic foundation.</p>
+                        </div>
+                        <div class="pd-ingredient-card" style="border-left-color: #d2a679;">
+                            <span class="pd-ingredient-icon">🪵</span>
+                            <div class="pd-ingredient-name">Cinnamon Bark</div>
+                            <p class="pd-ingredient-desc">Ethically sourced Ceylon cinnamon that gives the fragrance its
+                                initial spicy and inviting warmth.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Reviews Tab -->
+            <div class="pd-tab-panel" id="tab-reviews">
+                <div class="pd-reviews">
+                    <h3>Customer <span class="gold-text">Aura</span></h3>
+                    <div class="pd-reviews-summary">
+                        <div class="pd-review-avg">
+                            <div class="pd-review-avg-number">4.9</div>
+                            <div class="pd-review-avg-stars" style="color: var(--product-color);">★★★★★</div>
+                            <div class="pd-review-avg-count">Based on 185 reviews</div>
+                        </div>
+                        <div class="pd-review-bars">
+                            <div class="pd-review-bar-row">
+                                <span class="pd-review-bar-label">5 ★</span>
+                                <div class="pd-review-bar-track">
+                                    <div class="pd-review-bar-fill"
+                                        style="width: 95%; background: var(--product-color);"></div>
+                                </div>
+                                <span class="pd-review-bar-count">175</span>
+                            </div>
+                            <div class="pd-review-bar-row">
+                                <span class="pd-review-bar-label">4 ★</span>
+                                <div class="pd-review-bar-track">
+                                    <div class="pd-review-bar-fill"
+                                        style="width: 3%; background: var(--product-color);"></div>
+                                </div>
+                                <span class="pd-review-bar-count">6</span>
+                            </div>
+                            <div class="pd-review-bar-row">
+                                <span class="pd-review-bar-label">3 ★</span>
+                                <div class="pd-review-bar-track">
+                                    <div class="pd-review-bar-fill"
+                                        style="width: 1.5%; background: var(--product-color);"></div>
+                                </div>
+                                <span class="pd-review-bar-count">3</span>
+                            </div>
+                            <div class="pd-review-bar-row">
+                                <span class="pd-review-bar-label">2 ★</span>
+                                <div class="pd-review-bar-track">
+                                    <div class="pd-review-bar-fill"
+                                        style="width: 0.5%; background: var(--product-color);"></div>
+                                </div>
+                                <span class="pd-review-bar-count">1</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="pd-reviews-list">
+                        <div class="pd-review-card">
+                            <div class="pd-review-top">
+                                <div class="pd-reviewer">
+                                    <div class="pd-reviewer-avatar"
+                                        style="color: var(--product-color); border-color: var(--product-color);">VK
+                                    </div>
+                                    <div class="pd-reviewer-details">
+                                        <strong>Vikram Khanna</strong>
+                                        <span>Perfume Collector • Verified Buyer</span>
+                                    </div>
+                                </div>
+                                <div class="pd-review-stars" style="color: var(--product-color);">★★★★★</div>
+                            </div>
+                            <p class="pd-review-text">"Mystic Amber is a masterpiece of resinous warmth. The
+                                frankincense adds a
+                                mysterious smoke that sets it apart from typical amber scents. Highly recommended."</p>
+                            <span class="pd-verified">✓ Verified Purchase</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <script src="product-detail.js"></script>
+</body>
+
+</html>
